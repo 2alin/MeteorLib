@@ -5,14 +5,16 @@ import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from './reducers';
 
-if(process.env.NODE_ENV === 'production') {
+const store = createStore(rootReducer, composeWithDevTools());
 
-} else {
-  
-}
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
