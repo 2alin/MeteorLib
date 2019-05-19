@@ -17,7 +17,7 @@ export interface Meteorite {
 export interface Options {
   searchQuery: string;
   ordered: {
-    by: string;
+    by: OrderedBy;
     ascendent: boolean;
   };
   massRange: {
@@ -27,3 +27,25 @@ export interface Options {
 }
 
 export type Language = 'ES' | 'EN';
+
+export type OrderedBy = 'id' | 'mass' | 'name' | 'year';
+
+export interface Action {
+  type: string;
+}
+
+export interface UpdateList extends Action {
+  list: Meteorite[];
+}
+
+export interface UpdateOptions extends Action {
+  options: Options;
+}
+
+export interface ClearOptions extends Action {}
+
+export interface SetLanguage extends Action {
+  language: Language;
+}
+
+export interface NextPage extends Action {}
