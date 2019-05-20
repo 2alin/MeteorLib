@@ -1,5 +1,5 @@
 import React from 'react';
-import MeteoritesList from './containers/meteoritesList';
+import MeteoritesList from './containers/MeteoritesList';
 
 const App: React.FC = () => {
   return (

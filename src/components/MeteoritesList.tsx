@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import ListBottom from './listBottom';
+import ListBottom from './ListBottom';
 import { Options, Meteorite, Pagination } from '../types';
 import { API_URL } from '../constants';
 
