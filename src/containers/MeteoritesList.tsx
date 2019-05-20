@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import MeteoritesList from '../components/meteoritesList';
+import MeteoritesList from '../components/MeteoritesList';
 import { Store, Meteorite } from '../types';
 import { updateList, nextPage } from '../actions';
 
