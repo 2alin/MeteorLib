@@ -5,25 +5,30 @@ import { formatNumber } from '../utilities/methods';
 
 const styles = {
   container: {
-    background: 'white',
     maxWidth: '480px',
     margin: '1rem',
-    padding: '1rem',
+    // padding: '1rem',
     display: 'flex',
     flexDirection: 'column',
     borderRadius: '4px',
+    color: 'white',
+    background: '#a65f86',
     boxShadow: '0 0 2px',
     transition: 'transform .25s ease',
     '&:hover': {
-      transform: 'translate(8px, 0)'
+      transform: 'translate(8px, 0)',
     },
   },
   row: {
     display: 'flex',
     justifyContent: 'space-between',
-    marginBottom: '1rem',
+    // marginBottom: '1rem',
+    padding: '1rem',
     '&:last-child': {
-      marginBottom: 0,
+      paddingTop: '.5rem',
+    },
+    '&:first-child': {
+      background: '#844066',
     },
     '& .bold': {
       fontWeight: 500,
