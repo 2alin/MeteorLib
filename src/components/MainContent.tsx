@@ -25,7 +25,6 @@ class MeteoritesList extends React.Component<Props> {
     };
 
     window.onscroll = () => {
-      console.log('scrolling');
       const { error, isLoading } = this.state;
 
       if (error || isLoading) {
@@ -35,7 +34,7 @@ class MeteoritesList extends React.Component<Props> {
         window.innerHeight + document.documentElement.scrollTop >=
         document.documentElement.offsetHeight - 8
       ) {
-        console.log('fetching more data');
+        // console.log('fetching more data');
         this.loadData();
       }
     };
@@ -57,7 +56,7 @@ class MeteoritesList extends React.Component<Props> {
       .then(res => {
         this.setState({ isLoading: false });
         this.props.onFetch([...list, ...res.data]);
-        console.log('added more data');
+        // console.log('added more data');
       })
       .catch(err => {
         this.setState({ error: true });
