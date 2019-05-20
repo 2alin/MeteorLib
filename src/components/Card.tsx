@@ -1,35 +1,43 @@
 import React from 'react';
 import { Meteorite } from '../types';
 import withStyles from 'react-jss';
-import { formatNumber } from '../utilities/methods';
+import {
+  formatNumber,
+  classifyMeteorite,
+  genClassMeteoStyleSheet,
+} from '../utilities/methods';
+
+const cardColorsStyle = genClassMeteoStyleSheet();
+console.log(cardColorsStyle);
 
 const styles = {
   container: {
     maxWidth: '480px',
     margin: '1rem',
-    // padding: '1rem',
     display: 'flex',
     flexDirection: 'column',
     overflow: 'hidden',
     borderRadius: '4px',
     color: 'white',
-    background: '#a65f86',
-    boxShadow: '0 0 4px #a65f86',
     transition: 'transform .25s ease',
     '&:hover': {
       transform: 'translate(8px, 0)',
     },
+    ...cardColorsStyle,
+    // '&.ordinary': {
+    //   background: '#a65f86',
+    //   boxShadow: '0 0 4px #a65f86',
+    //   '& > :first-child': {
+    //     background: '#844066',
+    //   },
+    // },
   },
   row: {
     display: 'flex',
     justifyContent: 'space-between',
-    // marginBottom: '1rem',
     padding: '1rem',
     '&:last-child': {
       paddingTop: '.5rem',
-    },
-    '&:first-child': {
-      background: '#844066',
     },
     '& .bold': {
       fontWeight: 500,
@@ -58,7 +66,7 @@ function Card({ meteorite, classes }: Props) {
   } = meteorite;
   // console.log(name);
   return (
-    <div className={classes.container}>
+    <div className={classes.container + ' ' + classifyMeteorite(recclass)}>
       <div className={classes.row}>
         <div className={classes.group}>
           <span className="year">{new Date(year).getFullYear()}</span> —{' '}
