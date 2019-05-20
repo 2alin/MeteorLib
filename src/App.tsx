@@ -1,12 +1,12 @@
 import React from 'react';
-import MeteoritesList from './containers/MeteoritesList';
+import MainContent from './containers/MainContent';
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <h1>Meteorites Explorer</h1>
       <div className="SideBar" />
-      <MeteoritesList />
+      <MainContent />
     </div>
   );
 };

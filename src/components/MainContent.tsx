@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import List from './List';
 import ListBottom from './ListBottom';
 import { Options, Meteorite, Pagination } from '../types';
 import { API_URL } from '../constants';
@@ -32,7 +33,7 @@ class MeteoritesList extends React.Component<Props> {
       }
       if (
         window.innerHeight + document.documentElement.scrollTop >=
-        document.documentElement.offsetHeight - 20
+        document.documentElement.offsetHeight - 8
       ) {
         console.log('fetching more data');
         this.loadData();
@@ -72,11 +73,7 @@ class MeteoritesList extends React.Component<Props> {
 
     return (
       <div>
-        <ul>
-          {list.map(meteorite => (
-            <li key={meteorite.id}>{meteorite.name}</li>
-          ))}
-        </ul>
+        <List {...{ list }} />
         <ListBottom {...this.state} />
       </div>
     );

@@ -3,7 +3,8 @@ import withStyles from 'react-jss';
 
 const styles = {
   container: {
-    padding: '1rem',
+    height: '60px',
+    padding: '0 1rem',
     display: 'flex',
     justifyContent: 'center',
   },
@@ -47,7 +48,7 @@ function ListBottom({ error, isLoading, classes }: Props) {
           Loading...
         </div>
       ) : (
-        ''
+        'Scroll to load more data'
       )}
     </div>
   );

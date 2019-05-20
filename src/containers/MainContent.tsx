@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import MeteoritesList from '../components/MeteoritesList';
+import MainContent from '../components/MainContent';
 import { Store, Meteorite } from '../types';
 import { updateList, nextPage } from '../actions';
 
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch: any) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MeteoritesList);
+)(MainContent);
