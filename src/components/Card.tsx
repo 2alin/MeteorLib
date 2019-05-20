@@ -10,10 +10,11 @@ const styles = {
     // padding: '1rem',
     display: 'flex',
     flexDirection: 'column',
+    overflow: 'hidden',
     borderRadius: '4px',
     color: 'white',
     background: '#a65f86',
-    boxShadow: '0 0 2px',
+    boxShadow: '0 0 4px #a65f86',
     transition: 'transform .25s ease',
     '&:hover': {
       transform: 'translate(8px, 0)',
