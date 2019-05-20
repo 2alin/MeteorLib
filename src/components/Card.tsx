@@ -1,35 +1,36 @@
 import React from 'react';
 import { Meteorite } from '../types';
 import withStyles from 'react-jss';
+import { formatNumber } from '../utilities/methods';
 
 const styles = {
   container: {
-    background: 'lightgray',
+    background: 'white',
     maxWidth: '480px',
     margin: '1rem',
     padding: '1rem',
     display: 'flex',
     flexDirection: 'column',
-  },
-  group: {
-    // background: 'lightpink',
-    display: 'flex',
-    justifyContent: 'space-between',
-    '& > *': {
-      flex: 1,
-    },
-    '& > .geolocation': {
-      flex: 2,
-      display: 'flex',
-      justifyContent: 'right',
-    },
-    '&:first-child': {
-      marginBottom: '1rem',
+    borderRadius: '4px',
+    boxShadow: '0 0 2px',
+    transition: 'transform .25s ease',
+    '&:hover': {
+      transform: 'translate(8px, 0)'
     },
   },
-  subgroup: {
+  row: {
     display: 'flex',
     justifyContent: 'space-between',
+    marginBottom: '1rem',
+    '&:last-child': {
+      marginBottom: 0,
+    },
+    '& .bold': {
+      fontWeight: 500,
+    },
+    '& .name': {
+      fontSize: '1.15rem',
+    },
   },
 };
 
@@ -52,27 +53,29 @@ function Card({ meteorite, classes }: Props) {
   // console.log(name);
   return (
     <div className={classes.container}>
-      <div className={classes.group}>
-        <span className="name">
-          {name}
-          {nametype === 'Relict' && ` [Relict]`}
-        </span>
-        <div className={classes.subgroup}>
-          <span className="class">class: {recclass}</span>
-          <span className="fall">{fall}</span>
+      <div className={classes.row}>
+        <div className={classes.group}>
+          <span className="year">{new Date(year).getFullYear()}</span> —{' '}
+          <span className="fell">{fall}</span>
         </div>
-      </div>
-      <div className={classes.group}>
         <span className="id">Id: {id}</span>
-        <div className={classes.subgroup}>
-          <span className="year">{new Date(year).getFullYear()}</span>
-          <span className="mass">{mass}g</span>
-        </div>
+      </div>
+      <div className={classes.row}>
+        <span className="name bold">
+          {name}
+          {nametype === 'Relict' && ` [relict]`}
+        </span>
+        <span className="class bold">{recclass}</span>
+      </div>
+      <div className={classes.row}>
+        <span className="mass">
+          {mass && `${formatNumber(Number(mass))}\u2009g`}
+        </span>
         <span className="geolocation">
-          Geo:{' '}
-          {geolocation
-            ? `${geolocation.latitude}, ${geolocation.longitude}`
-            : 'undefined'}
+          {geolocation &&
+            `geo: ${formatNumber(
+              Number(geolocation.latitude)
+            )}°, ${formatNumber(Number(geolocation.longitude))}°`}
         </span>
       </div>
     </div>
