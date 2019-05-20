@@ -26,9 +26,21 @@ export interface Options {
   };
 }
 
+export interface Pagination {
+  page: number;
+  itemsPerPage: number;
+}
+
 export type Language = 'ES' | 'EN';
 
 export type OrderedBy = 'id' | 'mass' | 'name' | 'year';
+
+export interface Store {
+  list: Meteorite[];
+  options: Options;
+  pagination: Pagination;
+  language: Language;
+}
 
 export interface Action {
   type: string;

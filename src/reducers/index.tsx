@@ -41,7 +41,7 @@ function options(state = initialOptions, action: any) {
   }
 }
 
-function pagination(state = { page: 0, itemsPerPage: 25 }, action: NextPage) {
+function pagination(state = { page: 1, itemsPerPage: 50 }, action: NextPage) {
   switch (action.type) {
     case actionTypes.NEXT_PAGE:
       return { ...state, page: state.page + 1 };
