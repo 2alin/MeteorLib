@@ -22,7 +22,7 @@ export const initialOptions: Options = {
   searchQuery: '',
   ordered: {
     by: 'name',
-    ascendent: true,
+    ascending: true,
   },
   massRange: {
     min: '',

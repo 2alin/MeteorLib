@@ -17,8 +17,8 @@ export interface Meteorite {
 export interface Options {
   searchQuery: string;
   ordered: {
-    by: OrderedBy;
-    ascendent: boolean;
+    by: string;
+    ascending: boolean;
   };
   massRange: {
     min: string;
@@ -33,7 +33,7 @@ export interface Pagination {
 
 export type Language = 'ES' | 'EN';
 
-export type OrderedBy = 'id' | 'mass' | 'name' | 'year';
+// export type OrderedBy = 'id' | 'mass' | 'name' | 'year';
 
 export interface Store {
   list: Meteorite[];
