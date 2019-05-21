@@ -8,22 +8,6 @@ export const cardColors: { [id: string]: string[] } = {
 export interface Style {
   [id: string]: string | Style;
 }
-/*
-export const addIcon = (icon: string, position: 'left' | 'right') => {
-  const ss: Style = {
-    position: 'relative',
-    '&::after': {
-      position: 'absolute',
-      content: "''",
-      width: '1rem',
-      height: '1rem',
-      background: `center / contain no-repeat url(${icon})`,
-    },
-  };
-  if (position === 'left') {
-    ss['&::after']['right'] = 'calc(100% + .5rem)';
-  }
-};*/
 
 export const addIconRight = (icon: string) => ({
   position: 'relative',

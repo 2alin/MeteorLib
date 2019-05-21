@@ -10,10 +10,6 @@ import markerIcon from '../assets/marker.svg';
 import weightIcon from '../assets/weight.svg';
 import { addIconRight, addIconLeft } from '../style';
 
-const cardColorsStyle = genClassMeteoStyleSheet();
-const weightIconStyle = addIconRight(weightIcon);
-const markerIconStyle = addIconLeft(markerIcon);
-
 const styles = {
   container: {
     maxWidth: '480px',
@@ -27,7 +23,7 @@ const styles = {
     '&:hover': {
       transform: 'translate(8px, 0)',
     },
-    ...cardColorsStyle,
+    ...genClassMeteoStyleSheet(),
   },
   row: {
     display: 'flex',
@@ -43,10 +39,10 @@ const styles = {
       fontSize: '1.15rem',
     },
     '& .mass': {
-      ...weightIconStyle,
+      ...addIconRight(weightIcon),
     },
     '& .geolocation': {
-      ...markerIconStyle,
+      ...addIconLeft(markerIcon),
     },
   },
 };
