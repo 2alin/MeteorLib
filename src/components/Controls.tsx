@@ -3,13 +3,18 @@ import Menu from './Menu';
 import { Options } from '../types';
 import withStyles from 'react-jss';
 import { initialOptions } from '../reducers';
-const styles = {};
+
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+};
 
 interface Props {
   options: Options;
+  onSave: (options: Options) => void;
   classes: any;
-  display: 'flex';
-  flexDirection: 'column';
 }
 class Controls extends React.Component<Props> {
   state: {
@@ -49,11 +54,16 @@ class Controls extends React.Component<Props> {
     this.setState({ newState });
   };
 
+  handleSubmit = (e: any) => {
+    e.preventDefault();
+    this.props.onSave(this.state.options);
+  };
+
   render() {
     const { classes } = this.props;
     const { searchQuery, massRange, ordered } = this.state.options;
     return (
-      <form className={classes.container}>
+      <form className={classes.container} onSubmit={this.handleSubmit}>
         <div className={classes.row} />
         <div className={classes.row}>
           <label htmlFor="searchQuery">Name contains:</label>
