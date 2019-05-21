@@ -41,10 +41,14 @@ function options(state = initialOptions, action: any) {
   }
 }
 
-function pagination(state = { page: 0, itemsPerPage: 24 }, action: NextPage) {
+export const InitialPagination = { page: 0, itemsPerPage: 24 };
+
+function pagination(state = InitialPagination, action: NextPage) {
   switch (action.type) {
     case actionTypes.NEXT_PAGE:
       return { ...state, page: state.page + 1 };
+    case actionTypes.RESET_PAGE:
+      return { ...InitialPagination };
     default:
       return state;
   }

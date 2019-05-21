@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from './Menu';
-import { Options } from '../types';
+import { Options, Pagination } from '../types';
 import withStyles from 'react-jss';
 import { initialOptions } from '../reducers';
 

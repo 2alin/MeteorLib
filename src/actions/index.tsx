@@ -23,3 +23,7 @@ export const setLanguage = (language: Language) => ({
 export const nextPage = () => ({
   type: actionTypes.NEXT_PAGE,
 });
+
+export const resetPage = () => ({
+  type: actionTypes.RESET_PAGE,
+});

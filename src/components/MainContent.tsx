@@ -1,10 +1,10 @@
 import React from 'react';
-import axios from 'axios';
+import _ from 'lodash';
 import List from './List';
 import ListBottom from './ListBottom';
 import withStyles from 'react-jss';
 import { Options, Meteorite, Pagination } from '../types';
-import { API_URL } from '../utilities/constants';
+import { fetchMeteoristList } from '../utilities/async';
 
 const styles = {
   container: {
@@ -56,26 +56,37 @@ class MeteoritesList extends React.Component<Props> {
     this.loadData();
   }
 
+  componentDidUpdate(prevProps: Props) {
+    console.log(prevProps.options);
+    console.log(this.props.options);
+    if (!_.isEqual(prevProps.options, this.props.options)) {
+      console.log('different props');
+      this.loadData();
+    }
+  }
+
   loadData() {
-    const { list, pagination } = this.props;
+    console.log('loding data');
+    const { list, options, pagination } = this.props;
 
     this.setState({ isLoading: true });
 
-    this.fetchData(pagination.itemsPerPage, pagination.page)
+    fetchMeteoristList({ options, pagination })
       .then(res => {
         this.setState({ isLoading: false });
         this.props.onFetch([...list, ...res.data]);
-        // console.log('added more data');
+        console.log('added more data');
       })
       .catch(err => {
+        console.log(err);
         this.setState({ error: true });
       });
   }
 
-  fetchData(limit: number, page: number) {
-    const query = `?$limit=${limit}&$offset=${page * limit}`;
-    return axios.get(API_URL.concat(query));
-  }
+  // fetchData(limit: number, page: number) {
+  //   const query = `?$limit=${limit}&$offset=${page * limit}`;
+  //   return axios.get(API_URL.concat(query));
+  // }
   render() {
     const { list, classes } = this.props;
 

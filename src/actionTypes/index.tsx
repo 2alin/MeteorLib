@@ -6,4 +6,6 @@ export const CLEAR_OPTIONS = 'CLEAR_OPTIONS';
 
 export const NEXT_PAGE = 'NEXT_PAGE';
 
+export const RESET_PAGE = 'RESET_PAGE';
+
 export const SET_LANGUAGE = 'SET_LANGUAGE';
