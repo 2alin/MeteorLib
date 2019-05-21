@@ -78,16 +78,18 @@ class MeteoritesList extends React.Component<Props> {
 
     fetchMeteoristList({ options, pagination })
       .then(res => {
+        const { list } = this.props;
+
         // this.setState({ isLoading: false });
         if (res.data.length === 0) {
-          this.setState({ status: 'empty' });
+          this.setState({ status: list.length === 0 ? 'empty' : 'full' });
         } else {
           this.setState({ status: 'iddle' });
         }
         // console.log('current proplist:', this.props.list);
         // console.log('list:', list);
         // console.log('res.data', res.data);
-        this.props.handleUpdateList([...this.props.list, ...res.data]);
+        this.props.handleUpdateList([...list, ...res.data]);
         // console.log('added more data');
       })
       .catch(err => {

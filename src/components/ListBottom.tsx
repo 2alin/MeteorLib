@@ -51,6 +51,10 @@ function ListBottom({ status, classes }: Props) {
         <div className={classes.empty}>
           You got an empty list. Please change filter values.
         </div>
+      ) : status === 'full' ? (
+        <div className={classes.full}>
+          You reached the end of the list. Try changing filter.
+        </div>
       ) : (
         'Scroll to load more data'
       )}

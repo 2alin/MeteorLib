@@ -33,7 +33,7 @@ export interface Pagination {
 
 export type Language = 'ES' | 'EN';
 
-export type ListStatus = 'error' | 'loading' | 'iddle' | 'empty';
+export type ListStatus = 'error' | 'loading' | 'iddle' | 'empty' | 'full';
 
 // export type OrderedBy = 'id' | 'mass' | 'name' | 'year';
 
