@@ -6,9 +6,10 @@ import {
   classifyMeteorite,
   genClassMeteoStyleSheet,
 } from '../utilities/methods';
+import markerIcon from '../assets/marker.svg';
+import weightIcon from '../assets/weight.svg';
 
 const cardColorsStyle = genClassMeteoStyleSheet();
-console.log(cardColorsStyle);
 
 const styles = {
   container: {
@@ -24,13 +25,6 @@ const styles = {
       transform: 'translate(8px, 0)',
     },
     ...cardColorsStyle,
-    // '&.ordinary': {
-    //   background: '#a65f86',
-    //   boxShadow: '0 0 4px #a65f86',
-    //   '& > :first-child': {
-    //     background: '#844066',
-    //   },
-    // },
   },
   row: {
     display: 'flex',
@@ -44,6 +38,28 @@ const styles = {
     },
     '& .name': {
       fontSize: '1.15rem',
+    },
+    '& .mass': {
+      position: 'relative',
+      '&::after': {
+        position: 'absolute',
+        left: 'calc(100% + .5rem)',
+        content: "''",
+        width: '1rem',
+        height: '1rem',
+        background: `center / contain no-repeat url(${weightIcon})`,
+      },
+    },
+    '& .geolocation': {
+      position: 'relative',
+      '&::after': {
+        position: 'absolute',
+        right: 'calc(100% + .5rem)',
+        content: "''",
+        width: '1rem',
+        height: '1rem',
+        background: `center / contain no-repeat url(${markerIcon})`,
+      },
     },
   },
 };
@@ -69,8 +85,10 @@ function Card({ meteorite, classes }: Props) {
     <div className={classes.container + ' ' + classifyMeteorite(recclass)}>
       <div className={classes.row}>
         <div className={classes.group}>
-          <span className="year">{new Date(year).getFullYear()}</span> —{' '}
-          <span className="fell">{fall}</span>
+          <span className="year">
+            {year ? new Date(year).getFullYear() : 'unknown'}
+          </span>{' '}
+          — <span className="fell">{fall}</span>
         </div>
         <span className="id">Id: {id}</span>
       </div>
@@ -87,7 +105,7 @@ function Card({ meteorite, classes }: Props) {
         </span>
         <span className="geolocation">
           {geolocation &&
-            `geo: ${formatNumber(
+            `${formatNumber(
               Number(geolocation.latitude)
             )}°, ${formatNumber(Number(geolocation.longitude))}°`}
         </span>

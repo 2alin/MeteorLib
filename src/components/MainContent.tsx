@@ -3,7 +3,7 @@ import axios from 'axios';
 import List from './List';
 import ListBottom from './ListBottom';
 import { Options, Meteorite, Pagination } from '../types';
-import { API_URL } from '../constants';
+import { API_URL } from '../utilities/constants';
 
 interface Props {
   list: Meteorite[];
