@@ -1,6 +1,6 @@
 import React from 'react';
 import MainContent from './containers/MainContent';
-import ControlsDrawer from './containers/ControlsDrawer';
+import ControlsDrawer from './components/ControlsDrawer'
 import withStyles from 'react-jss';
 
 const styles = {

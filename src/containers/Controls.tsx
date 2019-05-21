@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { Store, Options } from '../types';
 import { updateOptions } from '../actions';
-import ControlsDrawer from '../components/ControlsDrawer';
+import Controls from '../components/Controls';
 
 const mapStateToProps = (state: Store) => ({
   options: state.options,
@@ -16,4 +16,4 @@ const mapDispatchToProps = (dispatch: any) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ControlsDrawer);
+)(Controls);
