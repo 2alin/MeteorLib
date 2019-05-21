@@ -84,13 +84,14 @@ function Card({ meteorite, classes }: Props) {
       </div>
       <div className={classes.row}>
         <span className="mass">
-          {mass && `${formatNumber(Number(mass))}\u2009g`}
+          {mass ? `${formatNumber(Number(mass))}\u2009g` : 'unknown'}
         </span>
         <span className="geolocation">
-          {geolocation &&
-            `${formatNumber(Number(geolocation.latitude))}°, ${formatNumber(
-              Number(geolocation.longitude)
-            )}°`}
+          {geolocation
+            ? `${formatNumber(Number(geolocation.latitude))}°, ${formatNumber(
+                Number(geolocation.longitude)
+              )}°`
+            : 'unknown'}
         </span>
       </div>
     </div>
