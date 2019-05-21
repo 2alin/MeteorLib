@@ -17,18 +17,20 @@ interface Props {
   list: Meteorite[];
   options: Options;
   pagination: Pagination;
-  onFetch: (list: Meteorite[]) => void;
+  handleUpdateList: (list: Meteorite[]) => void;
   classes: any;
 }
 
 class MeteoritesList extends React.Component<Props> {
   state: {
+    list: Meteorite[];
     error: boolean;
     isLoading: boolean;
   };
   constructor(props: Props) {
     super(props);
     this.state = {
+      list: [],
       error: false,
       isLoading: false,
     };
@@ -57,25 +59,29 @@ class MeteoritesList extends React.Component<Props> {
   }
 
   componentDidUpdate(prevProps: Props) {
-    console.log(prevProps.options);
-    console.log(this.props.options);
+    // console.log(prevProps.options);
+    // console.log(this.props.options);
     if (!_.isEqual(prevProps.options, this.props.options)) {
-      console.log('different props');
+      // console.log('different props');
+      this.props.handleUpdateList([]);
       this.loadData();
     }
   }
 
   loadData() {
-    console.log('loding data');
-    const { list, options, pagination } = this.props;
+    // console.log('loding data');
+    const { options, pagination } = this.props;
 
     this.setState({ isLoading: true });
 
     fetchMeteoristList({ options, pagination })
       .then(res => {
         this.setState({ isLoading: false });
-        this.props.onFetch([...list, ...res.data]);
-        console.log('added more data');
+        // console.log('current proplist:', this.props.list);
+        // console.log('list:', list);
+        // console.log('res.data', res.data);
+        this.props.handleUpdateList([...this.props.list, ...res.data]);
+        // console.log('added more data');
       })
       .catch(err => {
         console.log(err);
@@ -83,10 +89,6 @@ class MeteoritesList extends React.Component<Props> {
       });
   }
 
-  // fetchData(limit: number, page: number) {
-  //   const query = `?$limit=${limit}&$offset=${page * limit}`;
-  //   return axios.get(API_URL.concat(query));
-  // }
   render() {
     const { list, classes } = this.props;
 

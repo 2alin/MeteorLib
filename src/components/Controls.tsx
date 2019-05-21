@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from './Menu';
-import { Options, Pagination } from '../types';
+import { Options } from '../types';
 import withStyles from 'react-jss';
 import { initialOptions } from '../reducers';
 
@@ -8,6 +8,9 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
+    '& .mass input': {
+      width: '3rem',
+    },
   },
 };
 
@@ -51,12 +54,28 @@ class Controls extends React.Component<Props> {
   handleSort = (option: string) => {
     const newState = { ...this.state };
     newState.options.ordered.ascending = option === 'ASC';
-    this.setState({ newState });
+    this.setState(newState);
   };
 
   handleSubmit = (e: any) => {
     e.preventDefault();
     this.props.onSave(this.state.options);
+  };
+
+  handleClear = () => {
+    console.log('clearing');
+    this.setState(
+      {
+        options: {
+          ...initialOptions,
+          ordered: { ...initialOptions.ordered },
+          massRange: { ...initialOptions.massRange },
+        },
+      },
+      () => {
+        this.props.onSave(this.state.options);
+      }
+    );
   };
 
   render() {
@@ -91,7 +110,7 @@ class Controls extends React.Component<Props> {
             />
           </div>
         </div>
-        <div className={classes.row}>
+        <div className={'mass'}>
           <span>Mass</span>
           <div className="subGroup">
             <label htmlFor="minMass">Min:</label>
@@ -117,7 +136,10 @@ class Controls extends React.Component<Props> {
           </div>
         </div>
         <div className={classes.row}>
-          <button type="submit">Done!</button>
+          <button type="button" onClick={this.handleClear}>
+            Reset
+          </button>
+          <button type="submit">Save</button>
         </div>
       </form>
     );

@@ -1,7 +1,11 @@
 import React from 'react';
 import withStyles from 'react-jss';
 
-const styles = {};
+const styles = {
+  title: {
+    fontWeight: 500,
+  },
+};
 
 interface Props {
   value: string;
@@ -13,7 +17,7 @@ interface Props {
 const Menu = ({ value, options, onSelect, classes }: Props) => {
   return (
     <div>
-      <span>{value}</span>
+      <span className={classes.title}>{value}</span>
       <ul className={classes.options}>
         {options.map((option, index) => (
           <li

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { Store, Options, Pagination } from '../types';
-import { updateOptions, updateList, resetPage, nextPage } from '../actions';
+import { Store, Options } from '../types';
+import { updateOptions, updateList, resetPage } from '../actions';
 import Controls from '../components/Controls';
 
 const mapStateToProps = (state: Store) => {
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     onSave: (options: Options) => {
       dispatch(updateOptions(options));
-      dispatch(updateList([]));
+      // dispatch(updateList([]));
       dispatch(resetPage());
     },
   };

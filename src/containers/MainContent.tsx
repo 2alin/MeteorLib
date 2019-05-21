@@ -4,7 +4,8 @@ import { Store, Meteorite } from '../types';
 import { updateList, nextPage } from '../actions';
 
 const mapStateToProps = (state: Store) => {
-  console.log('called map state to props')
+  // console.log('called map state to props, MainContent');
+  // console.log('state list', state.list);
   return {
     list: [...state.list],
     options: {
@@ -17,7 +18,8 @@ const mapStateToProps = (state: Store) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  onFetch: (list: Meteorite[]) => {
+  handleUpdateList: (list: Meteorite[]) => {
+    // console.log('dispatching onfetch');
     dispatch(updateList(list));
     dispatch(nextPage());
   },
