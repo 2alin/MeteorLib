@@ -18,7 +18,7 @@ function list(state: Meteorite[] = [], action: UpdateList) {
   }
 }
 
-const initialOptions: Options = {
+export const initialOptions: Options = {
   searchQuery: '',
   ordered: {
     by: 'name',

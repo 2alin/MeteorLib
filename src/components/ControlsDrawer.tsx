@@ -1,4 +1,5 @@
 import React from 'react';
+import Controls from '../containers/Controls'
 import withStyles from 'react-jss';
 
 const styles = {
@@ -16,7 +17,7 @@ interface Props {
 const ControlsDrawer = ({ classes }: Props) => {
   return (
     <div className={classes.drawer}>
-      <div>CONTROLS</div>
+      <Controls />
       <div>FOOTER</div>
     </div>
   );
