@@ -1,5 +1,6 @@
 import React from 'react';
 import withStyles from 'react-jss';
+import { ListStatus } from '../types';
 
 const styles = {
   container: {
@@ -32,20 +33,23 @@ const styles = {
 };
 
 interface Props {
-  error: boolean;
-  isLoading: boolean;
+  status: ListStatus;
   classes: any;
 }
 
-function ListBottom({ error, isLoading, classes }: Props) {
+function ListBottom({ status, classes }: Props) {
   return (
     <div className={classes.container}>
-      {error ? (
+      {status === 'error' ? (
         <div className={classes.error}>Error</div>
-      ) : isLoading ? (
+      ) : status === 'loading' ? (
         <div className={classes.loading}>
           <div className={classes.circle} />
           Loading...
+        </div>
+      ) : status === 'empty' ? (
+        <div className={classes.empty}>
+          You got an empty list. Please change filter values.
         </div>
       ) : (
         'Scroll to load more data'

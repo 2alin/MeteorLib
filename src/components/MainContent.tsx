@@ -3,7 +3,7 @@ import _ from 'lodash';
 import List from './List';
 import ListBottom from './ListBottom';
 import withStyles from 'react-jss';
-import { Options, Meteorite, Pagination } from '../types';
+import { Options, Meteorite, Pagination, ListStatus } from '../types';
 import { fetchMeteoristList } from '../utilities/async';
 
 const styles = {
@@ -24,21 +24,22 @@ interface Props {
 class MeteoritesList extends React.Component<Props> {
   state: {
     list: Meteorite[];
-    error: boolean;
-    isLoading: boolean;
+    status: ListStatus;
+    // error: boolean;
+    // isLoading: boolean;
   };
   constructor(props: Props) {
     super(props);
     this.state = {
       list: [],
-      error: false,
-      isLoading: false,
+      status: 'iddle',
     };
 
     window.onscroll = () => {
-      const { error, isLoading } = this.state;
+      // const { error, isLoading } = this.state;
+      const { status } = this.state;
 
-      if (error || isLoading) {
+      if (status !== 'iddle') {
         return;
       }
       if (
@@ -72,11 +73,17 @@ class MeteoritesList extends React.Component<Props> {
     // console.log('loding data');
     const { options, pagination } = this.props;
 
-    this.setState({ isLoading: true });
+    // this.setState({ isLoading: true });
+    this.setState({ status: 'loading' });
 
     fetchMeteoristList({ options, pagination })
       .then(res => {
-        this.setState({ isLoading: false });
+        // this.setState({ isLoading: false });
+        if (res.data.length === 0) {
+          this.setState({ status: 'empty' });
+        } else {
+          this.setState({ status: 'iddle' });
+        }
         // console.log('current proplist:', this.props.list);
         // console.log('list:', list);
         // console.log('res.data', res.data);
@@ -85,7 +92,7 @@ class MeteoritesList extends React.Component<Props> {
       })
       .catch(err => {
         console.log(err);
-        this.setState({ error: true });
+        this.setState({ status: 'error' });
       });
   }
 

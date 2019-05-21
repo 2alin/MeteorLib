@@ -33,6 +33,8 @@ export interface Pagination {
 
 export type Language = 'ES' | 'EN';
 
+export type ListStatus = 'error' | 'loading' | 'iddle' | 'empty';
+
 // export type OrderedBy = 'id' | 'mass' | 'name' | 'year';
 
 export interface Store {
