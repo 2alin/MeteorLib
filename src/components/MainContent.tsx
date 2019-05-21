@@ -2,14 +2,23 @@ import React from 'react';
 import axios from 'axios';
 import List from './List';
 import ListBottom from './ListBottom';
+import withStyles from 'react-jss';
 import { Options, Meteorite, Pagination } from '../types';
 import { API_URL } from '../utilities/constants';
+
+const styles = {
+  container: {
+    // width: '100%',
+    flex: 1,
+  },
+};
 
 interface Props {
   list: Meteorite[];
   options: Options;
   pagination: Pagination;
   onFetch: (list: Meteorite[]) => void;
+  classes: any;
 }
 
 class MeteoritesList extends React.Component<Props> {
@@ -68,10 +77,10 @@ class MeteoritesList extends React.Component<Props> {
     return axios.get(API_URL.concat(query));
   }
   render() {
-    const { list } = this.props;
+    const { list, classes } = this.props;
 
     return (
-      <div>
+      <div className={classes.container}>
         <List {...{ list }} />
         <ListBottom {...this.state} />
       </div>
@@ -79,4 +88,4 @@ class MeteoritesList extends React.Component<Props> {
   }
 }
 
-export default MeteoritesList;
+export default withStyles(styles)(MeteoritesList);

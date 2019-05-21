@@ -8,6 +8,9 @@ const styles = {
     margin: 0,
     padding: 0,
     listStyle: 'none',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
   },
 };
 

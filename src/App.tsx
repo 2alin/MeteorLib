@@ -1,14 +1,25 @@
 import React from 'react';
 import MainContent from './containers/MainContent';
+import ControlsDrawer from './containers/ControlsDrawer';
+import withStyles from 'react-jss';
 
-const App: React.FC = () => {
+const styles = {
+  app: {
+    display: 'flex',
+  },
+};
+
+interface Props {
+  classes: any;
+}
+
+const App = ({ classes }: Props) => {
   return (
-    <div className="App">
-      <h1>Meteorites Explorer</h1>
-      <div className="SideBar" />
+    <div className={classes.app}>
+      <ControlsDrawer />
       <MainContent />
     </div>
   );
 };
 
-export default App;
+export default withStyles(styles)(App);

@@ -12,7 +12,7 @@ import { addIconRight, addIconLeft } from '../style';
 
 const styles = {
   container: {
-    maxWidth: '480px',
+    width: '360px',
     margin: '1rem',
     display: 'flex',
     flexDirection: 'column',
