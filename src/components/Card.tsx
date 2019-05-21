@@ -8,8 +8,11 @@ import {
 } from '../utilities/methods';
 import markerIcon from '../assets/marker.svg';
 import weightIcon from '../assets/weight.svg';
+import { addIconRight, addIconLeft } from '../style';
 
 const cardColorsStyle = genClassMeteoStyleSheet();
+const weightIconStyle = addIconRight(weightIcon);
+const markerIconStyle = addIconLeft(markerIcon);
 
 const styles = {
   container: {
@@ -40,26 +43,10 @@ const styles = {
       fontSize: '1.15rem',
     },
     '& .mass': {
-      position: 'relative',
-      '&::after': {
-        position: 'absolute',
-        left: 'calc(100% + .5rem)',
-        content: "''",
-        width: '1rem',
-        height: '1rem',
-        background: `center / contain no-repeat url(${weightIcon})`,
-      },
+      ...weightIconStyle,
     },
     '& .geolocation': {
-      position: 'relative',
-      '&::after': {
-        position: 'absolute',
-        right: 'calc(100% + .5rem)',
-        content: "''",
-        width: '1rem',
-        height: '1rem',
-        background: `center / contain no-repeat url(${markerIcon})`,
-      },
+      ...markerIconStyle,
     },
   },
 };
@@ -105,9 +92,9 @@ function Card({ meteorite, classes }: Props) {
         </span>
         <span className="geolocation">
           {geolocation &&
-            `${formatNumber(
-              Number(geolocation.latitude)
-            )}°, ${formatNumber(Number(geolocation.longitude))}°`}
+            `${formatNumber(Number(geolocation.latitude))}°, ${formatNumber(
+              Number(geolocation.longitude)
+            )}°`}
         </span>
       </div>
     </div>
