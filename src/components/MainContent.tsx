@@ -61,7 +61,7 @@ class MeteoritesList extends React.Component<Props> {
 
     this.setState({ isLoading: true });
 
-    this.fetchData(pagination.itemsPerPage, pagination.page - 1)
+    this.fetchData(pagination.itemsPerPage, pagination.page)
       .then(res => {
         this.setState({ isLoading: false });
         this.props.onFetch([...list, ...res.data]);
