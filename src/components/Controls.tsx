@@ -153,6 +153,7 @@ class Controls extends React.Component<Props> {
               this.handleInputChange(e, 'query');
             }}
             placeholder={'search in name...'}
+            autoComplete={'off'}
           />
         </div>
         <div className={'order'}>
@@ -181,6 +182,7 @@ class Controls extends React.Component<Props> {
                 this.handleInputChange(e, 'min');
               }}
               placeholder={'min'}
+              autoComplete={'off'}
               pattern="\d*"
             />
             <span> - </span>
@@ -192,6 +194,7 @@ class Controls extends React.Component<Props> {
                 this.handleInputChange(e, 'max');
               }}
               placeholder={'max'}
+              autoComplete={'off'}
               pattern="\d*"
             />
           </div>
