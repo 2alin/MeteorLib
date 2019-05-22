@@ -12,7 +12,6 @@ const mapStateToprops = (state: Store) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     handleClick: (drawerVisibility: boolean) => {
-      console.log('clicked button')
       dispatch(setDrawerVisibility(drawerVisibility));
     },
   };

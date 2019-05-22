@@ -75,7 +75,6 @@ interface Props {
 }
 
 const ControlsDrawer = ({ drawerVisibility, classes }: Props) => {
-  console.log(drawerVisibility);
   return (
     <div className={`${classes.drawer} ${drawerVisibility ? 'visible' : ''}`}>
       <Controls />

@@ -5,10 +5,14 @@ import ListBottom from './ListBottom';
 import withStyles from 'react-jss';
 import { Options, Meteorite, Pagination, ListStatus } from '../types';
 import { fetchMeteoristList } from '../utilities/async';
+import { BREAKING_POINT } from '../style';
 
 const styles = {
   container: {
     flex: 1,
+    [`@media (max-width: ${BREAKING_POINT}px)`]: {
+      marginTop: '42px',
+    },
   },
 };
 
