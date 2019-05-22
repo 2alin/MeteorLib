@@ -1,3 +1,5 @@
+import { NONAME } from 'dns';
+
 export const cardColors: { [id: string]: string[] } = {
   ordinary: ['#007b6e', '#339789'],
   carbon: ['#55433b', '#78645c'],
@@ -5,9 +7,9 @@ export const cardColors: { [id: string]: string[] } = {
   other: ['#844066', '#a65f86'],
 };
 
-export interface Style {
-  [id: string]: string | Style;
-}
+// export interface Style {
+//   [id: string]: string | Style;
+// }
 
 export const addIconRight = (icon: string) => ({
   position: 'relative',
@@ -31,4 +33,16 @@ export const addIconLeft = (icon: string) => {
       right: 'calc(100% + .5rem)',
     },
   };
+};
+
+export const linkStyle = {
+  outline: 'none',
+  textDecoration: 'none',
+  fontWeight: '500',
+  '&:link, &:visited, &:focus': {
+    color: 'inherit',
+  },
+  '&:focus, &:hover': {
+    textDecoration: 'underline dotted',
+  },
 };
