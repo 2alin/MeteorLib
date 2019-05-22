@@ -18,11 +18,11 @@ window.onload = () => {
   }
 };
 
-window.onresize = () => {
-  if (window.innerWidth <= BREAKING_POINT) {
-    store.dispatch(setDrawerVisibility(false));
-  }
-};
+// window.onresize = () => {
+//   if (window.innerWidth <= BREAKING_POINT) {
+//     store.dispatch(setDrawerVisibility(true));
+//   }
+// };
 
 ReactDOM.render(
   <Provider store={store}>
