@@ -5,7 +5,7 @@ import { ListStatus } from '../types';
 const styles = {
   container: {
     height: '60px',
-    padding: '0 1rem',
+    padding: '1rem',
     display: 'flex',
     justifyContent: 'center',
   },

@@ -1,6 +1,7 @@
 import React from 'react';
 import withStyles from 'react-jss';
 import { BREAKING_POINT } from '../style';
+import caretIcon from '../assets/caret.svg';
 
 const styles = {
   container: {
@@ -9,14 +10,14 @@ const styles = {
     top: '.5rem',
     left: '.5rem',
     zIndex: 100,
-    background: 'white',
     width: '42px',
     height: '42px',
-    '&.menuMode': {
-      background: 'pink',
-    },
+    cursor: 'pointer',
+    background: `center / contain no-repeat url(${caretIcon})`,
+    transform: 'rotate(-90deg)',
+    transition: 'transform 1s ease',
     '&.exitMode': {
-      background: 'blue',
+      transform: 'rotate(90deg)',
     },
     [`@media (max-width: ${BREAKING_POINT}px)`]: {
       display: 'block',
