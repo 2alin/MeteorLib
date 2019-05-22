@@ -8,7 +8,7 @@ import {
 } from '../utilities/methods';
 import markerIcon from '../assets/marker.svg';
 import weightIcon from '../assets/weight.svg';
-import { addIconRight, addIconLeft } from '../style';
+import { addIconRight, addIconLeft, BREAKING_POINT } from '../style';
 
 const styles = {
   container: {
@@ -24,6 +24,9 @@ const styles = {
       transform: 'translate(8px, 0)',
     },
     ...genClassMeteoStyleSheet(),
+    [`@media (max-width: 390px)`]: {
+      width: '310px',
+    },
   },
   row: {
     display: 'flex',

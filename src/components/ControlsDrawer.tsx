@@ -2,7 +2,7 @@ import React from 'react';
 import Controls from '../containers/Controls';
 import withStyles from 'react-jss';
 import githubIcon from '../assets/github.svg';
-import { linkStyle, addIconRight } from '../style';
+import { linkStyle, addIconRight, BREAKING_POINT } from '../style';
 
 const styles = {
   drawer: {
@@ -19,6 +19,15 @@ const styles = {
     background: '#3D424E',
     color: 'white',
     overflow: 'auto',
+    [`@media (max-width: ${BREAKING_POINT}px)`]: {
+      position: 'fixed',
+      zIndex: 90,
+      left: '-270px',
+      transition: 'left 1s ease',
+      '&.visible': {
+        left: 0,
+      },
+    },
   },
   footer: {
     // justifySelf: 'end',
@@ -61,12 +70,14 @@ const styles = {
 };
 
 interface Props {
+  drawerVisibility: boolean;
   classes: any;
 }
 
-const ControlsDrawer = ({ classes }: Props) => {
+const ControlsDrawer = ({ drawerVisibility, classes }: Props) => {
+  console.log(drawerVisibility);
   return (
-    <div className={classes.drawer}>
+    <div className={`${classes.drawer} ${drawerVisibility ? 'visible' : ''}`}>
       <Controls />
       <div className={classes.footer}>
         <span className="brand">MeteorLib</span>

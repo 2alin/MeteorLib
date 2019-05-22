@@ -42,6 +42,7 @@ export interface Store {
   options: Options;
   pagination: Pagination;
   language: Language;
+  drawerVisibility: boolean;
 }
 
 export interface Action {
@@ -63,3 +64,7 @@ export interface SetLanguage extends Action {
 }
 
 export interface NextPage extends Action {}
+
+export interface SetDrawerVisibility extends Action {
+  drawerVisibility: boolean;
+}

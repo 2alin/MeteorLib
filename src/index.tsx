@@ -6,9 +6,23 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
-import './index.css'
+import './index.css';
+import { BREAKING_POINT } from './style';
+import { setDrawerVisibility } from './actions';
 
 const store = createStore(rootReducer, composeWithDevTools());
+
+window.onload = () => {
+  if (window.innerWidth > BREAKING_POINT) {
+    store.dispatch(setDrawerVisibility(true));
+  }
+};
+
+window.onresize = () => {
+  if (window.innerWidth <= BREAKING_POINT) {
+    store.dispatch(setDrawerVisibility(false));
+  }
+};
 
 ReactDOM.render(
   <Provider store={store}>

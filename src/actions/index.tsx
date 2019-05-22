@@ -27,3 +27,8 @@ export const nextPage = () => ({
 export const resetPage = () => ({
   type: actionTypes.RESET_PAGE,
 });
+
+export const setDrawerVisibility = (drawerVisibility: boolean) => ({
+  type: actionTypes.SET_DRAWER_VISIBILITY,
+  drawerVisibility,
+});

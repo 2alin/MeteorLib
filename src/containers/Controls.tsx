@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import { Store, Options } from '../types';
-import { updateOptions, updateList, resetPage } from '../actions';
+import {
+  updateOptions,
+  resetPage,
+  setDrawerVisibility,
+} from '../actions';
 import Controls from '../components/Controls';
 
 const mapStateToProps = (state: Store) => {
@@ -18,6 +22,7 @@ const mapDispatchToProps = (dispatch: any) => {
     onSave: (options: Options) => {
       dispatch(updateOptions(options));
       dispatch(resetPage());
+      dispatch(setDrawerVisibility(false));
     },
   };
 };

@@ -9,3 +9,5 @@ export const NEXT_PAGE = 'NEXT_PAGE';
 export const RESET_PAGE = 'RESET_PAGE';
 
 export const SET_LANGUAGE = 'SET_LANGUAGE';
+
+export const SET_DRAWER_VISIBILITY = 'SET_DRAWER_VISIBILITY';

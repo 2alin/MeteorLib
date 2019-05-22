@@ -7,6 +7,7 @@ import {
   Meteorite,
   Language,
   SetLanguage,
+  SetDrawerVisibility,
 } from '../types';
 
 function list(state: Meteorite[] = [], action: UpdateList) {
@@ -63,11 +64,21 @@ function language(state: Language = 'EN', action: SetLanguage) {
   }
 }
 
+function drawerVisibility(state: boolean = false, action: SetDrawerVisibility) {
+  switch (action.type) {
+    case actionTypes.SET_DRAWER_VISIBILITY:
+      return action.drawerVisibility;
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
   list,
   options,
   pagination,
   language,
+  drawerVisibility,
 });
 
 export default rootReducer;

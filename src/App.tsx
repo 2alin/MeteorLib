@@ -1,7 +1,8 @@
 import React from 'react';
 import MainContent from './containers/MainContent';
-import ControlsDrawer from './components/ControlsDrawer'
+import ControlsDrawer from './containers/ControlsDrawer'
 import withStyles from 'react-jss';
+import ToggleDrawer from './containers/ToggleDrawer';
 
 const styles = {
   app: {
@@ -16,6 +17,7 @@ interface Props {
 const App = ({ classes }: Props) => {
   return (
     <div className={classes.app}>
+      <ToggleDrawer />
       <ControlsDrawer />
       <MainContent />
     </div>

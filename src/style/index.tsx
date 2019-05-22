@@ -62,3 +62,5 @@ export const removeStyleList = {
   padding: 0,
   listStyle: 'none',
 };
+
+export const BREAKING_POINT = 670;
