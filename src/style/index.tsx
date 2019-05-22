@@ -46,3 +46,13 @@ export const linkStyle = {
     textDecoration: 'underline dotted',
   },
 };
+
+export const removeStyleInput = {
+  background: 'none',
+  border: 'none',
+  fontFamily: 'inherit',
+  fontSize: '.9rem',
+  color: 'inherit',
+  padding: '.25rem .5rem',
+  borderRadius: '2px',
+};

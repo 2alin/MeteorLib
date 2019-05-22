@@ -17,6 +17,7 @@ const styles = {
     top: 0,
     background: '#3D424E',
     color: 'white',
+    overflow: 'auto',
   },
   footer: {
     // justifySelf: 'end',

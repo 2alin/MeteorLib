@@ -3,13 +3,62 @@ import Menu from './Menu';
 import { Options } from '../types';
 import withStyles from 'react-jss';
 import { initialOptions } from '../reducers';
+import { removeStyleInput } from '../style';
 
 const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
+    padding: '1rem',
+
+    '& > *': {
+      marginBottom: '1rem',
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    '& .tag': {
+      marginBottom: '.5rem',
+    },
+    '& .controlsField': {
+      // alignSelf: 'center',
+      marginLeft: '1rem',
+    },
+    '& input': {
+      ...removeStyleInput,
+      background: '#5f6471',
+    },
+    '& .search': {
+      alignItems: 'center',
+    },
+    '& .search width': {
+      width: '5rem',
+    },
+    '& .mass': {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    '& .mass .tag': {
+      margin: 0,
+    },
     '& .mass input': {
       width: '3rem',
+    },
+    '& .buttonsField': {
+      margin: '1rem 0',
+      flexDirection: 'row',
+      // justifyContent: 'end',
+      '& button': {
+        ...removeStyleInput,
+        marginRight: '1rem',
+        background: 'inherit',
+        padding: '.4rem .75rem',
+        border: '1px solid',
+        cursor: 'pointer',
+        transition: 'background .5s ease',
+        '&:hover, &:focus': {
+          background: '#5f6471',
+        },
+      },
     },
   },
 };
@@ -83,9 +132,7 @@ class Controls extends React.Component<Props> {
     const { searchQuery, massRange, ordered } = this.state.options;
     return (
       <form className={classes.container} onSubmit={this.handleSubmit}>
-        <div className={classes.row} />
-        <div className={classes.row}>
-          <label htmlFor="searchQuery">Name contains:</label>
+        <div className={'search'}>
           <input
             type="text"
             id="searchQuery"
@@ -93,11 +140,12 @@ class Controls extends React.Component<Props> {
             onChange={e => {
               this.handleInputChange(e, 'query');
             }}
+            placeholder={'search in name...'}
           />
         </div>
-        <div className={classes.row}>
-          <span>Ordered by:</span>
-          <div className="subGroup">
+        <div className={'order'}>
+          <span className={'tag'}>Order by:</span>
+          <div className="controlsField">
             <Menu
               value={ordered.by}
               options={['name', 'id', 'mass', 'year']}
@@ -111,9 +159,8 @@ class Controls extends React.Component<Props> {
           </div>
         </div>
         <div className={'mass'}>
-          <span>Mass</span>
-          <div className="subGroup">
-            <label htmlFor="minMass">Min:</label>
+          <span className="tag">Mass:</span>
+          <div className="controlsField">
             <input
               type="text"
               id="minMass"
@@ -121,9 +168,10 @@ class Controls extends React.Component<Props> {
               onChange={e => {
                 this.handleInputChange(e, 'min');
               }}
+              placeholder={'min'}
               pattern="\d*"
             />
-            <label htmlFor="maxMass">Max:</label>
+            <span> - </span>
             <input
               type="text"
               id="maxMass"
@@ -131,11 +179,12 @@ class Controls extends React.Component<Props> {
               onChange={e => {
                 this.handleInputChange(e, 'max');
               }}
+              placeholder={'max'}
               pattern="\d*"
             />
           </div>
         </div>
-        <div className={classes.row}>
+        <div className={'buttonsField'}>
           <button type="button" onClick={this.handleClear}>
             Reset
           </button>
