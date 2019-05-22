@@ -8,7 +8,6 @@ import { fetchMeteoristList } from '../utilities/async';
 
 const styles = {
   container: {
-    // width: '100%',
     flex: 1,
   },
 };
@@ -25,8 +24,6 @@ class MeteoritesList extends React.Component<Props> {
   state: {
     list: Meteorite[];
     status: ListStatus;
-    // error: boolean;
-    // isLoading: boolean;
   };
   constructor(props: Props) {
     super(props);
@@ -36,7 +33,6 @@ class MeteoritesList extends React.Component<Props> {
     };
 
     window.onscroll = () => {
-      // const { error, isLoading } = this.state;
       const { status } = this.state;
 
       if (status !== 'iddle') {
@@ -60,8 +56,6 @@ class MeteoritesList extends React.Component<Props> {
   }
 
   componentDidUpdate(prevProps: Props) {
-    // console.log(prevProps.options);
-    // console.log(this.props.options);
     if (!_.isEqual(prevProps.options, this.props.options)) {
       // console.log('different props');
       this.props.handleUpdateList([]);
@@ -73,22 +67,18 @@ class MeteoritesList extends React.Component<Props> {
     // console.log('loding data');
     const { options, pagination } = this.props;
 
-    // this.setState({ isLoading: true });
     this.setState({ status: 'loading' });
 
     fetchMeteoristList({ options, pagination })
       .then(res => {
         const { list } = this.props;
 
-        // this.setState({ isLoading: false });
         if (res.data.length === 0) {
           this.setState({ status: list.length === 0 ? 'empty' : 'full' });
         } else {
           this.setState({ status: 'iddle' });
         }
-        // console.log('current proplist:', this.props.list);
-        // console.log('list:', list);
-        // console.log('res.data', res.data);
+
         this.props.handleUpdateList([...list, ...res.data]);
         // console.log('added more data');
       })

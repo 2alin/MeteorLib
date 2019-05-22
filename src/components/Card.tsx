@@ -63,7 +63,7 @@ function Card({ meteorite, classes }: Props) {
     nametype,
     mass,
   } = meteorite;
-  // console.log(name);
+
   return (
     <div className={classes.container + ' ' + classifyMeteorite(recclass)}>
       <div className={classes.row}>

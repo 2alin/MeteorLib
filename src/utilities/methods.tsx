@@ -30,11 +30,3 @@ export const genClassMeteoStyleSheet = () => {
   });
   return ss;
 };
-
-// '&.ordinary': {
-//   background: '#a65f86',
-//   boxShadow: '0 0 4px #a65f86',
-//   '& > :first-child': {
-//     background: '#844066',
-//   },
-// },

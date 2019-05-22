@@ -4,7 +4,6 @@ import { updateOptions, updateList, resetPage } from '../actions';
 import Controls from '../components/Controls';
 
 const mapStateToProps = (state: Store) => {
-  // console.log('mapstatetoprops from controls');
   return {
     options: {
       ...state.options,
@@ -15,11 +14,9 @@ const mapStateToProps = (state: Store) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => {
-  // console.log('called mapDispatchtoProps from controls')
   return {
     onSave: (options: Options) => {
       dispatch(updateOptions(options));
-      // dispatch(updateList([]));
       dispatch(resetPage());
     },
   };
