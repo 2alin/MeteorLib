@@ -10,6 +10,7 @@ const styles = {
     // minHeight: '',
     height: '100vh',
     width: '270px',
+    flexShrink: '0',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -68,15 +69,26 @@ const ControlsDrawer = ({ classes }: Props) => {
     <div className={classes.drawer}>
       <Controls />
       <div className={classes.footer}>
-        <span className="brand">meteorLib</span>
+        <span className="brand">MeteorLib</span>
         <div className="row">
-          <a href="http://" className="github sources" />
+          <a
+            href="https://github.com/2alin/MeteorLib"
+            target="_blank"
+            className="github sources"
+          />
           {/* <div className="sources" /> */}
-          <a href="http://" className="nasa sources">
+          <a
+            href="https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh"
+            target="_blank"
+            className="nasa sources"
+          >
             nasa
           </a>
           <div className="author">
-            by <a href="http://">adilson</a>
+            by{' '}
+            <a href="https://twitter.com/2alin" target="_blank">
+              adilson
+            </a>
           </div>
         </div>
       </div>

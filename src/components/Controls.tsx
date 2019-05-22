@@ -34,7 +34,6 @@ const styles = {
       boxSizing: 'border-box',
     },
     '& .order .controlsField': {
-      // background: 'blue',
       display: 'flex',
       justifyContent: 'center',
 
@@ -61,7 +60,6 @@ const styles = {
     '& .buttonsField': {
       margin: '1rem 0',
       flexDirection: 'row',
-      // justifyContent: 'end',
       '& button': {
         ...removeStyleInput,
         marginRight: '1rem',
@@ -127,7 +125,6 @@ class Controls extends React.Component<Props> {
   };
 
   handleClear = () => {
-    console.log('clearing');
     this.setState(
       {
         options: {

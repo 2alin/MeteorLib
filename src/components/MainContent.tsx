@@ -42,7 +42,6 @@ class MeteoritesList extends React.Component<Props> {
         window.innerHeight + document.documentElement.scrollTop >=
         document.documentElement.offsetHeight - 8
       ) {
-        // console.log('fetching more data');
         this.loadData();
       }
     };
@@ -57,14 +56,12 @@ class MeteoritesList extends React.Component<Props> {
 
   componentDidUpdate(prevProps: Props) {
     if (!_.isEqual(prevProps.options, this.props.options)) {
-      // console.log('different props');
       this.props.handleUpdateList([]);
       this.loadData();
     }
   }
 
   loadData() {
-    // console.log('loding data');
     const { options, pagination } = this.props;
 
     this.setState({ status: 'loading' });
@@ -80,10 +77,8 @@ class MeteoritesList extends React.Component<Props> {
         }
 
         this.props.handleUpdateList([...list, ...res.data]);
-        // console.log('added more data');
       })
       .catch(err => {
-        console.log(err);
         this.setState({ status: 'error' });
       });
   }

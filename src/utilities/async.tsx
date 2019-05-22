@@ -34,7 +34,7 @@ export const fetchMeteoristList = ({ options, pagination = InitialPagination }: 
   query += `&$limit=${pagination.itemsPerPage}&$offset=${pagination.page *
     pagination.itemsPerPage}`;
 
-  console.log(API_URL);
-  console.log(query);
+  // console.log(API_URL);
+  // console.log(query);
   return axios.get(API_URL.concat(query));
 };
