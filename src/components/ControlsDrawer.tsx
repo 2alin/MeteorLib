@@ -2,12 +2,10 @@ import React from 'react';
 import Controls from '../containers/Controls';
 import withStyles from 'react-jss';
 import githubIcon from '../assets/github.svg';
-import { linkStyle, addIconRight, BREAKING_POINT } from '../style';
+import { linkStyle, BREAKING_POINT } from '../style';
 
 const styles = {
   drawer: {
-    // change line bellow once all content has been set and styled
-    // minHeight: '',
     height: '100vh',
     width: '270px',
     flexShrink: '0',
@@ -30,7 +28,6 @@ const styles = {
     },
   },
   footer: {
-    // justifySelf: 'end',
     background: '#323640',
     display: 'flex',
     flexDirection: 'column',
@@ -84,19 +81,25 @@ const ControlsDrawer = ({ drawerVisibility, classes }: Props) => {
           <a
             href="https://github.com/2alin/MeteorLib"
             target="_blank"
+            rel="noopener noreferrer"
             className="github sources"
           />
           {/* <div className="sources" /> */}
           <a
             href="https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh"
             target="_blank"
+            rel="noopener noreferrer"
             className="nasa sources"
           >
             nasa
           </a>
           <div className="author">
             by{' '}
-            <a href="https://twitter.com/2alin" target="_blank">
+            <a
+              href="https://twitter.com/2alin"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               adilson
             </a>
           </div>

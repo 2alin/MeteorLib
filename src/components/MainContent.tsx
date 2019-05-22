@@ -74,8 +74,10 @@ class MeteoritesList extends React.Component<Props> {
       .then(res => {
         const { list } = this.props;
 
-        if (res.data.length === 0) {
-          this.setState({ status: list.length === 0 ? 'empty' : 'full' });
+        if (list.length + res.data.length === 0) {
+          this.setState({ status: 'empty' });
+        } else if (res.data.length < pagination.itemsPerPage) {
+          this.setState({ status: 'full' });
         } else {
           this.setState({ status: 'iddle' });
         }

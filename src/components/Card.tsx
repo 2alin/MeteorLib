@@ -8,7 +8,7 @@ import {
 } from '../utilities/methods';
 import markerIcon from '../assets/marker.svg';
 import weightIcon from '../assets/weight.svg';
-import { addIconRight, addIconLeft, BREAKING_POINT } from '../style';
+import { addIconRight, addIconLeft } from '../style';
 
 const styles = {
   container: {
