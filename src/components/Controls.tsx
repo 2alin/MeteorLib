@@ -10,18 +10,15 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     padding: '1rem',
+    marginTop: '3.25rem',
 
     '& > *': {
-      marginBottom: '1rem',
+      marginBottom: '2rem',
       display: 'flex',
       flexDirection: 'column',
     },
     '& .tag': {
       marginBottom: '.5rem',
-    },
-    '& .controlsField': {
-      // alignSelf: 'center',
-      marginLeft: '1rem',
     },
     '& input': {
       ...removeStyleInput,
@@ -30,15 +27,33 @@ const styles = {
     '& .search': {
       alignItems: 'center',
     },
-    '& .search width': {
-      width: '5rem',
+    '& .search input': {
+      width: 'calc(100px + 80px + 1rem)',
+      padding: '.5rem 1rem',
+      borderBottom: '1px solid',
+      boxSizing: 'border-box',
+    },
+    '& .order .controlsField': {
+      // background: 'blue',
+      display: 'flex',
+      justifyContent: 'center',
+
+      '& > *': {
+      },
+      '& > :first-child': {
+        width: '100px',
+        marginRight: '1rem',
+      },
+      '& > :last-child': {
+        width: '80px',
+      },
     },
     '& .mass': {
       flexDirection: 'row',
       alignItems: 'center',
     },
     '& .mass .tag': {
-      margin: 0,
+      margin: '0 .5rem 0 0 ',
     },
     '& .mass input': {
       width: '3rem',

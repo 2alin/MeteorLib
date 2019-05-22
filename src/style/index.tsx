@@ -56,3 +56,9 @@ export const removeStyleInput = {
   padding: '.25rem .5rem',
   borderRadius: '2px',
 };
+
+export const removeStyleList = {
+  margin: 0,
+  padding: 0,
+  listStyle: 'none',
+};
