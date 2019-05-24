@@ -64,6 +64,10 @@ class Menu extends React.Component<Props> {
     document.addEventListener('mousedown', this.handleClickOutside);
   };
 
+  componentWillUnmount = () => {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  };
+
   toggleVisibility = () => {
     this.setState({ visible: !this.state.visible });
   };
