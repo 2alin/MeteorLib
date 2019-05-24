@@ -8,9 +8,8 @@ const styles = {
     background: '#5f6471',
     textAlign: 'center',
     fontSize: '.9rem',
-    // border: '1px solid',
     borderBottom: '1px solid',
-    // boxSizing: 'border-box',
+    userSelect: 'none',
   },
   title: {
     display: 'inline-block',
@@ -52,22 +51,37 @@ interface Props {
 
 class Menu extends React.Component<Props> {
   state: { visible: boolean };
+  private menuRef: React.RefObject<HTMLDivElement>;
   constructor(props: Props) {
     super(props);
     this.state = {
       visible: false,
     };
+    this.menuRef = React.createRef();
   }
+
+  componentDidMount = () => {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  };
 
   toggleVisibility = () => {
     this.setState({ visible: !this.state.visible });
   };
 
+  handleClickOutside = (e: any) => {
+    if (
+      this.menuRef.current &&
+      !this.menuRef.current.contains(e.target) &&
+      this.state.visible
+    ) {
+      this.setState({ visible: false });
+    }
+  };
+
   render() {
     const { value, options, onSelect, classes } = this.props;
-
     return (
-      <div className={classes.menuContainer}>
+      <div className={classes.menuContainer} ref={this.menuRef}>
         <span className={classes.title} onClick={this.toggleVisibility}>
           {value}
         </span>
