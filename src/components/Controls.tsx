@@ -19,6 +19,8 @@ const styles = {
     },
     '& .tag': {
       marginBottom: '.5rem',
+      fontSize: '.9rem',
+      filter: 'brightness(.75)',
     },
     '& input': {
       ...removeStyleInput,
@@ -40,20 +42,22 @@ const styles = {
       display: 'flex',
       justifyContent: 'start',
 
-      '& > *': {},
-      '& > :first-child': {
+      '& > *': {
         width: '5rem',
-        marginRight: '1rem',
       },
-      '& > :last-child': {
-        width: '4.25rem',
+      '& > :first-child': {
+        marginRight: '1rem',
       },
     },
     '& .mass': {
       flexDirection: 'column',
     },
     '& .mass input': {
-      width: '3rem',
+      width: '5rem',
+      boxSizing: 'border-box',
+      '&:first-child': {
+        marginRight: '1rem',
+      },
     },
     '& .buttonsField': {
       margin: '1rem 0',
@@ -190,7 +194,6 @@ class Controls extends React.Component<Props> {
               autoComplete={'off'}
               pattern="\d*"
             />
-            <span> - </span>
             <input
               type="text"
               id="maxMass"
