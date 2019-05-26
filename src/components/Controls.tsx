@@ -10,7 +10,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     padding: '1rem',
-    marginTop: '3.25rem',
+    marginTop: '1rem',
 
     '& > *': {
       marginBottom: '2rem',
@@ -24,35 +24,33 @@ const styles = {
       ...removeStyleInput,
       background: '#5f6471',
     },
-    '& .search': {
-      alignItems: 'center',
+    '& .i18n': {
+      alignItems: 'end',
+      '& > :first-child': {
+        width: '2.5rem',
+      },
     },
+    '& .search': {},
     '& .search input': {
-      width: 'calc(100px + 80px + 1rem)',
       padding: '.5rem 1rem',
       borderBottom: '1px solid',
       boxSizing: 'border-box',
     },
     '& .order .controlsField': {
       display: 'flex',
-      justifyContent: 'center',
+      justifyContent: 'start',
 
-      '& > *': {
-      },
+      '& > *': {},
       '& > :first-child': {
-        width: '100px',
+        width: '5rem',
         marginRight: '1rem',
       },
       '& > :last-child': {
-        width: '80px',
+        width: '4.25rem',
       },
     },
     '& .mass': {
-      flexDirection: 'row',
-      alignItems: 'center',
-    },
-    '& .mass .tag': {
-      margin: '0 .5rem 0 0 ',
+      flexDirection: 'column',
     },
     '& .mass input': {
       width: '3rem',
@@ -144,6 +142,13 @@ class Controls extends React.Component<Props> {
     const { searchQuery, massRange, ordered } = this.state.options;
     return (
       <form className={classes.container} onSubmit={this.handleSubmit}>
+        <div className={'i18n'}>
+          <Menu
+            value={'EN'}
+            options={['EN', 'ES']}
+            onSelect={option => console.log(option)}
+          />
+        </div>
         <div className={'search'}>
           <input
             type="text"
