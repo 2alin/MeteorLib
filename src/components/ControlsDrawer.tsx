@@ -19,7 +19,7 @@ const styles = {
     overflow: 'auto',
     [`@media (max-width: ${BREAKING_POINT}px)`]: {
       position: 'fixed',
-      zIndex: 90,
+      zIndex: 50,
       left: '-270px',
       transition: 'left 1s ease',
       '&.visible': {

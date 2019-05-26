@@ -5,6 +5,7 @@ import { removeStyleList } from '../style';
 const styles = {
   menuContainer: {
     position: 'relative',
+    zIndex: 60,
     background: '#5f6471',
     textAlign: 'center',
     fontSize: '.9rem',

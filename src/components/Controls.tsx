@@ -1,9 +1,10 @@
 import React from 'react';
 import Menu from './Menu';
-import { Options } from '../types';
+import { Options, Language } from '../types';
 import withStyles from 'react-jss';
 import { initialOptions } from '../reducers';
 import { removeStyleInput } from '../style';
+import { i18n } from '../utilities/i18n';
 
 const styles = {
   container: {
@@ -79,7 +80,9 @@ const styles = {
 };
 
 interface Props {
+  lang: Language;
   options: Options;
+  setLanguage: (lang: Language) => void;
   onSave: (options: Options) => void;
   classes: any;
 }
@@ -96,6 +99,10 @@ class Controls extends React.Component<Props> {
   componentDidMount() {
     this.setState({ options: this.props.options });
   }
+
+  handleSelectLanguage = (lang: string) => {
+    this.props.setLanguage(lang as Language);
+  };
 
   handleInputChange = (e: any, limit: 'query' | 'min' | 'max') => {
     const newState = { ...this.state };
@@ -142,7 +149,7 @@ class Controls extends React.Component<Props> {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, lang } = this.props;
     const { searchQuery, massRange, ordered } = this.state.options;
     return (
       <form className={classes.container} onSubmit={this.handleSubmit}>
@@ -150,7 +157,7 @@ class Controls extends React.Component<Props> {
           <Menu
             value={'EN'}
             options={['EN', 'ES']}
-            onSelect={option => console.log(option)}
+            onSelect={this.handleSelectLanguage}
           />
         </div>
         <div className={'search'}>
@@ -161,12 +168,12 @@ class Controls extends React.Component<Props> {
             onChange={e => {
               this.handleInputChange(e, 'query');
             }}
-            placeholder={'search in name...'}
+            placeholder={`${i18n[lang].panel.searchInput}...`}
             autoComplete={'off'}
           />
         </div>
         <div className={'order'}>
-          <span className={'tag'}>Order by:</span>
+          <span className={'tag'}>{`${i18n[lang].panel.orderBy}:`}</span>
           <div className="controlsField">
             <Menu
               value={ordered.by}
@@ -181,7 +188,7 @@ class Controls extends React.Component<Props> {
           </div>
         </div>
         <div className={'mass'}>
-          <span className="tag">Mass:</span>
+          <span className="tag">{`${i18n[lang].panel.mass}:`}</span>
           <div className="controlsField">
             <input
               type="text"
@@ -209,9 +216,9 @@ class Controls extends React.Component<Props> {
         </div>
         <div className={'buttonsField'}>
           <button type="button" onClick={this.handleClear}>
-            Reset
+            {`${i18n[lang].panel.reset}`}
           </button>
-          <button type="submit">Save</button>
+          <button type="submit">{`${i18n[lang].panel.save}`}</button>
         </div>
       </form>
     );
