@@ -43,9 +43,14 @@ const styles = {
   },
 };
 
+interface Option {
+  key: string;
+  value: string;
+}
+
 interface Props {
   value: string;
-  options: string[];
+  options: Option[];
   onSelect: (value: string) => void;
   classes: any;
 }
@@ -95,15 +100,15 @@ class Menu extends React.Component<Props> {
             this.state.visible ? 'visible' : ''
           }`}
         >
-          {options.map((option, index) => (
+          {options.map((option) => (
             <li
-              key={index}
+              key={option.key}
               onClick={() => {
                 this.toggleVisibility();
-                onSelect(option);
+                onSelect(option.key);
               }}
             >
-              {option}
+              {option.value}
             </li>
           ))}
         </ul>

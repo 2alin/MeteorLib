@@ -151,12 +151,13 @@ class Controls extends React.Component<Props> {
   render() {
     const { classes, lang } = this.props;
     const { searchQuery, massRange, ordered } = this.state.options;
+    const { orderOpts } = i18n[lang].panel;
     return (
       <form className={classes.container} onSubmit={this.handleSubmit}>
         <div className={'i18n'}>
           <Menu
-            value={'EN'}
-            options={['EN', 'ES']}
+            value={lang}
+            options={[{ key: 'EN', value: 'EN' }, { key: 'ES', value: 'ES' }]}
             onSelect={this.handleSelectLanguage}
           />
         </div>
@@ -176,13 +177,21 @@ class Controls extends React.Component<Props> {
           <span className={'tag'}>{`${i18n[lang].panel.orderBy}:`}</span>
           <div className="controlsField">
             <Menu
-              value={ordered.by}
-              options={['name', 'id', 'mass', 'year']}
+              value={orderOpts[ordered.by]}
+              options={[
+                { key: 'name', value: orderOpts.name },
+                { key: 'id', value: orderOpts.id },
+                { key: 'mass', value: orderOpts.mass },
+                { key: 'year', value: orderOpts.year },
+              ]}
               onSelect={this.handleOrderedBy}
             />
             <Menu
               value={ordered.ascending ? 'ASC' : 'DESC'}
-              options={['ASC', 'DESC']}
+              options={[
+                { key: 'ASC', value: 'ASC' },
+                { key: 'DESC', value: 'DESC' },
+              ]}
               onSelect={this.handleSort}
             />
           </div>
