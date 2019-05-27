@@ -1,5 +1,3 @@
-import { Language } from '../types';
-
 const EN = {
   panel: {
     searchInput: 'search in name',

@@ -26,6 +26,9 @@ const styles = {
     '& input': {
       ...removeStyleInput,
       background: '#5f6471',
+      '&::placeholder': {
+        color: '#eee',
+      },
     },
     '& .i18n': {
       alignItems: 'end',
