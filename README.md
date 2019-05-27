@@ -16,4 +16,12 @@ Features:
 * Carbonaceous (CI, CM,...) => brown
 * Iron => gray
 * Others => pink (ish)
+
+## Installation
+```
+git clone https://github.com/2alin/MeteorLib.git
+cd MeteorLib
+npm install && npm start
+```
+
  
