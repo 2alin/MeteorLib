@@ -31,7 +31,7 @@ const styles = {
       },
     },
     '& .i18n': {
-      alignItems: 'end',
+      alignItems: 'flex-end',
       '& > :first-child': {
         width: '2.5rem',
       },
