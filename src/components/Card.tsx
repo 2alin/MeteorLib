@@ -1,14 +1,10 @@
 import React from 'react';
 import { Meteorite } from '../types';
 import withStyles from 'react-jss';
-import {
-  formatNumber,
-  classifyMeteorite,
-  genClassMeteoStyleSheet,
-} from '../utilities/methods';
+import { formatNumber, classifyMeteorite } from '../utilities/methods';
 import markerIcon from '../assets/marker.svg';
 import weightIcon from '../assets/weight.svg';
-import { addIconRight, addIconLeft } from '../style';
+import { bgCardStyle, addIconRight, addIconLeft } from '../style';
 
 const styles = {
   container: {
@@ -23,7 +19,7 @@ const styles = {
     '&:hover': {
       transform: 'translate(8px, 0)',
     },
-    ...genClassMeteoStyleSheet(),
+    ...bgCardStyle(),
     [`@media (max-width: 390px)`]: {
       width: '310px',
     },

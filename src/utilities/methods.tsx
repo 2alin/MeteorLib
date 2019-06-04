@@ -1,5 +1,3 @@
-import { cardColors } from '../style';
-
 export const formatNumber = (number: number) => {
   return new Intl.NumberFormat().format(number);
 };
@@ -17,16 +15,4 @@ export const classifyMeteorite = (recclass: string) => {
   }
 };
 
-export const genClassMeteoStyleSheet = () => {
-  const ss: { [id: string]: any } = {};
-  Object.keys(cardColors).forEach((recclass: string) => {
-    ss[`&.${recclass}`] = {
-      background: cardColors[recclass][1],
-      boxShadow: `0 0 4px ${cardColors[recclass][1]}`,
-      '& > :first-child': {
-        background: cardColors[recclass][0],
-      },
-    };
-  });
-  return ss;
-};
+

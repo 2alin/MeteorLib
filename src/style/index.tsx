@@ -5,6 +5,20 @@ export const cardColors: { [id: string]: string[] } = {
   other: ['#844066', '#a65f86'],
 };
 
+export const bgCardStyle = () => {
+  const style: { [id: string]: any } = {};
+  Object.keys(cardColors).forEach((meteorClass: string) => {
+    style[`&.${meteorClass}`] = {
+      background: cardColors[meteorClass][1],
+      boxShadow: `0 0 4px ${cardColors[meteorClass][1]}`,
+      '& > :first-child': {
+        background: cardColors[meteorClass][0],
+      },
+    };
+  });
+  return style;
+};
+
 export const addIconRight = (icon: string) => ({
   position: 'relative',
   '&::after': {
