@@ -59,6 +59,7 @@ const styles = {
       width: '1rem',
       height: '1rem',
       background: `center / contain no-repeat url(${githubIcon})`,
+      fontSize: 0,
     },
     '& .nasa': {
       fontVariant: 'small-caps',
@@ -83,7 +84,9 @@ const ControlsDrawer = ({ drawerVisibility, classes }: Props) => {
             target="_blank"
             rel="noopener noreferrer"
             className="github sources"
-          />
+          >
+            github
+          </a>
           {/* <div className="sources" /> */}
           <a
             href="https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh"
