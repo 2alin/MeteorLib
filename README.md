@@ -7,6 +7,8 @@ Features:
 
 :heavy_check_mark: Filter controls 
 
+:heavy_check_mark: Map localization
+
 :heavy_check_mark: Infinite scroll 
 
 :heavy_check_mark: Responsive design
