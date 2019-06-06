@@ -78,7 +78,7 @@ class MapModal extends React.Component<Props> {
             {meteorite.geolocation ? (
               <MapBox {...{ meteorite }} />
             ) : (
-              <div className={'message'}>No coordidates available.</div>
+              <div className={'message'}>No coordinates available.</div>
             )}
             <InfoBox {...{ meteorite }} />
           </>

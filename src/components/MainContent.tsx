@@ -22,7 +22,6 @@ interface Props {
   options: Options;
   pagination: Pagination;
   handleUpdateList: (list: Meteorite[]) => void;
-  mapVisibility: boolean;
   classes: any;
 }
 
