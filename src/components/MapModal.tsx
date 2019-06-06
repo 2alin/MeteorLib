@@ -18,10 +18,11 @@ const styles = {
     right: 0,
     bottom: 0,
     left: CONTROLS_WIDTH + 'px',
-    transform: 'translateY(-100vh)',
+    transform: 'translateX(100vw)',
     transition: 'transform 1s ease',
+
     '&.visible': {
-      transform: 'translateY(0)',
+      transform: 'translateX(0)',
     },
 
     [`@media (max-width: ${BREAKING_POINT}px)`]: {
