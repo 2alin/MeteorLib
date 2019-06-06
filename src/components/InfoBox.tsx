@@ -2,26 +2,22 @@ import React from 'react';
 import withStyles from 'react-jss';
 import { Meteorite } from '../types';
 import { formatNumber } from '../utilities/methods';
+import { THEME } from '../style';
 
 const styles = {
   container: {
-    background: 'white',
     padding: '.5rem',
     display: 'flex',
     flexDirection: 'column',
     overflow: 'auto',
+    background: THEME.darkBg,
+    color: 'white',
     '& td': {
       paddingBottom: '1rem',
-      // display: 'flex',
-      // background: 'yellow',
-      // justifyContent: 'space-between',
     },
 
     '& .fieldName': {
       paddingRight: '1.25rem',
-      // '&::after': {
-      //   content: '"\u2009:"',
-      // },
     },
     '& .fieldValue': {
       fontWeight: 500,

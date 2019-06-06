@@ -1,6 +1,6 @@
 import React from 'react';
 import withStyles from 'react-jss';
-import { removeStyleList } from '../style';
+import { removeStyleList, THEME } from '../style';
 
 const styles = {
   menuContainer: {
@@ -37,7 +37,7 @@ const styles = {
       lineHeight: 2,
       cursor: 'pointer',
       '&:hover': {
-        background: '#3D424E',
+        background: THEME.darkBg,
       },
     },
   },
@@ -100,7 +100,7 @@ class Menu extends React.Component<Props> {
             this.state.visible ? 'visible' : ''
           }`}
         >
-          {options.map((option) => (
+          {options.map(option => (
             <li
               key={option.key}
               onClick={() => {

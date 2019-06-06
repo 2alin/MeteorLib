@@ -1,7 +1,7 @@
 import React from 'react';
 import InfoBox from './InfoBox';
 import withStyles from 'react-jss';
-import { CONTROLS_WIDTH, BREAKING_POINT } from '../style';
+import { CONTROLS_WIDTH, BREAKING_POINT, THEME } from '../style';
 import { Meteorite } from '../types';
 
 const styles = {
@@ -9,7 +9,7 @@ const styles = {
     display: 'flex',
     padding: '1rem',
     paddingTop: '4rem',
-    background: 'pink',
+    background: THEME.lightBg,
     position: 'fixed',
     zIndex: 10,
     top: 0,

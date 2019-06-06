@@ -2,7 +2,7 @@ import React from 'react';
 import Controls from '../containers/Controls';
 import withStyles from 'react-jss';
 import githubIcon from '../assets/github.svg';
-import { linkStyle, BREAKING_POINT, CONTROLS_WIDTH } from '../style';
+import { linkStyle, BREAKING_POINT, CONTROLS_WIDTH, THEME } from '../style';
 
 const styles = {
   drawer: {
@@ -14,7 +14,7 @@ const styles = {
     justifyContent: 'space-between',
     position: 'sticky',
     top: 0,
-    background: '#3D424E',
+    background: THEME.darkBg,
     color: 'white',
     overflow: 'auto',
     [`@media (max-width: ${BREAKING_POINT}px)`]: {

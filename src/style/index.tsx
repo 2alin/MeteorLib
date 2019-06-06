@@ -74,3 +74,8 @@ export const removeStyleList = {
 export const BREAKING_POINT = 670;
 
 export const CONTROLS_WIDTH = 270;
+
+export const THEME = {
+  darkBg: "#3D424E",
+  lightBg: "#e5e5e5"
+}
