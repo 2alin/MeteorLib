@@ -2,7 +2,7 @@ import React from 'react';
 import withStyles from 'react-jss';
 import { Meteorite } from '../types';
 import { formatNumber } from '../utilities/methods';
-import { THEME } from '../style';
+import { THEME, BREAKING_POINT } from '../style';
 
 const styles = {
   container: {
@@ -21,6 +21,16 @@ const styles = {
     },
     '& .fieldValue': {
       fontWeight: 500,
+    },
+
+    [`@media (max-width: ${BREAKING_POINT}px)`]: {
+      flex: .8,
+      '& table': {
+        width: '100%',
+      },
+      '& td': {
+        paddingBottom: '.5rem',
+      }
     },
   },
 };

@@ -27,6 +27,7 @@ const styles = {
 
     [`@media (max-width: ${BREAKING_POINT}px)`]: {
       left: 0,
+      flexDirection: 'column',
     },
 
     '& .closeButton': {
