@@ -6,7 +6,6 @@ import { linkStyle, BREAKING_POINT, CONTROLS_WIDTH, THEME } from '../style';
 
 const styles = {
   drawer: {
-    height: '100vh',
     width: CONTROLS_WIDTH + 'px',
     flexShrink: '0',
     display: 'flex',
@@ -14,6 +13,7 @@ const styles = {
     justifyContent: 'space-between',
     position: 'sticky',
     top: 0,
+    bottom: 0,
     background: THEME.darkBg,
     color: 'white',
     overflow: 'auto',
