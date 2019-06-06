@@ -5,7 +5,7 @@ import { setMapVisibility } from '../actions';
 
 const mapStateToProps = (state: Store) => {
   return {
-    mapCoordinates: state.mapCoordinates,
+    meteorite: state.mapMeteorite,
   };
 };
 

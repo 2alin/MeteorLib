@@ -1,5 +1,5 @@
 import * as actionTypes from '../actionTypes';
-import { Meteorite, Options, Language, Coordinates } from '../types';
+import { Meteorite, Options, Language } from '../types';
 
 export const updateList = (list: Meteorite[]) => ({
   type: actionTypes.UPDATE_LIST,
@@ -38,7 +38,7 @@ export const setMapVisibility = (mapVisibility: boolean) => ({
   mapVisibility,
 });
 
-export const setMapCoordinates = (mapCoordinates: Coordinates | null) => ({
-  type: actionTypes.SET_MAP_COORDINATES,
-  mapCoordinates,
+export const setMapMeteorite = (mapMeteorite: Meteorite) => ({
+  type: actionTypes.SET_MAP_METEORITE,
+  mapMeteorite,
 });

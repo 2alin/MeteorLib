@@ -9,8 +9,7 @@ import {
   SetLanguage,
   SetDrawerVisibility,
   SetMapVisibility,
-  SetMapCoordinates,
-  Coordinates,
+  SetMapMeteorite,
 } from '../types';
 
 function list(state: Meteorite[] = [], action: UpdateList) {
@@ -85,13 +84,10 @@ function mapVisibility(state: boolean = false, action: SetMapVisibility) {
   }
 }
 
-function mapCoordinates(
-  state: Coordinates | null = null,
-  action: SetMapCoordinates
-) {
+function mapMeteorite(state: Meteorite | null = null, action: SetMapMeteorite) {
   switch (action.type) {
-    case actionTypes.SET_MAP_COORDINATES:
-      return action.mapCoordinates;
+    case actionTypes.SET_MAP_METEORITE:
+      return action.mapMeteorite;
     default:
       return state;
   }
@@ -104,7 +100,7 @@ const rootReducer = combineReducers({
   language,
   drawerVisibility,
   mapVisibility,
-  mapCoordinates,
+  mapMeteorite,
 });
 
 export default rootReducer;

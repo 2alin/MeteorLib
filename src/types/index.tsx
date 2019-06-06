@@ -35,8 +35,6 @@ export type Language = 'ES' | 'EN';
 
 export type ListStatus = 'error' | 'loading' | 'iddle' | 'empty' | 'full';
 
-export type Coordinates = [number, number];
-
 // export type OrderedBy = 'id' | 'mass' | 'name' | 'year';
 
 export interface Store {
@@ -46,7 +44,7 @@ export interface Store {
   language: Language;
   drawerVisibility: boolean;
   mapVisibility: boolean;
-  mapCoordinates: Coordinates | null;
+  mapMeteorite: Meteorite | null;
 }
 
 export interface Action {
@@ -77,7 +75,6 @@ export interface SetMapVisibility extends Action {
   mapVisibility: boolean;
 }
 
-export interface SetMapCoordinates extends Action {
-  // mapCoordinates: [number, number];
-  mapCoordinates: Coordinates | null;
+export interface SetMapMeteorite extends Action {
+  mapMeteorite: Meteorite | null;
 }

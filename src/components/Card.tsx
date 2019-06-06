@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meteorite, Coordinates } from '../types';
+import { Meteorite } from '../types';
 import withStyles from 'react-jss';
 import { formatNumber, classifyMeteorite } from '../utilities/methods';
 import markerIcon from '../assets/marker.svg';
@@ -48,7 +48,7 @@ const styles = {
 
 interface Props {
   meteorite: Meteorite;
-  showMap: (coordinates: Coordinates | null) => void;
+  showMap: (meteorite: Meteorite) => void;
   classes: any;
 }
 
@@ -64,15 +64,11 @@ function Card({ meteorite, showMap, classes }: Props) {
     mass,
   } = meteorite;
 
-  const coordinates: Coordinates | null = geolocation
-    ? [Number(geolocation.latitude), Number(geolocation.longitude)]
-    : null;
-
   return (
     <div
       className={classes.container + ' ' + classifyMeteorite(recclass)}
       onClick={() => {
-        showMap(coordinates);
+        showMap(meteorite);
       }}
     >
       <div className={classes.row}>
@@ -96,9 +92,9 @@ function Card({ meteorite, showMap, classes }: Props) {
           {mass ? `${formatNumber(Number(mass))}\u2009g` : 'unknown'}
         </span>
         <span className="geolocation">
-          {coordinates !== null
-            ? `${formatNumber(coordinates[0])}°, ${formatNumber(
-                coordinates[1]
+          {geolocation
+            ? `${formatNumber(Number(geolocation.latitude))}°, ${formatNumber(
+                Number(geolocation.longitude)
               )}°`
             : 'unknown'}
         </span>

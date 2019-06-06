@@ -1,10 +1,13 @@
 import React from 'react';
 import withStyles from 'react-jss';
-import { Coordinates } from '../types';
 import { CONTROLS_WIDTH, BREAKING_POINT } from '../style';
+import { Meteorite } from '../types';
 
 const styles = {
   container: {
+    display: 'flex',
+    padding: '1rem',
+    paddingTop: '4rem',
     background: 'pink',
     position: 'fixed',
     zIndex: 10,
@@ -16,10 +19,19 @@ const styles = {
       left: 0,
     },
   },
+  mapBox: {
+    background: 'lightgreen',
+    flex: 1,
+  },
+  infoBox: {
+    background: 'lightblue',
+    display: 'flex',
+    overflow: 'auto',
+  },
 };
 
 interface Props {
-  mapCoordinates: Coordinates | null;
+  meteorite: Meteorite | null;
   quitModal: () => void;
   classes: any;
 }
@@ -39,12 +51,16 @@ class MapModal extends React.Component<Props> {
     );
   }
   render() {
-    const { classes, quitModal, mapCoordinates } = this.props;
+    const { classes, quitModal, meteorite } = this.props;
+
     return (
       <div className={classes.container} onClick={quitModal}>
-        {mapCoordinates !== null
-          ? mapCoordinates[0] + ' , ' + mapCoordinates[1]
-          : 'no available coordinates'}
+        {meteorite && (
+          <>
+            <div className={classes.mapBox}>Map</div>
+            <div className={classes.infoBox}>{meteorite.name}</div>
+          </>
+        )}
       </div>
     );
   }
