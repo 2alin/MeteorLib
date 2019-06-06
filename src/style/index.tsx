@@ -71,11 +71,11 @@ export const removeStyleList = {
   listStyle: 'none',
 };
 
-export const BREAKING_POINT = 920;
+export const BREAKING_POINT = 860;
 
 export const CONTROLS_WIDTH = 270;
 
 export const THEME = {
-  darkBg: "#3D424E",
-  lightBg: "#efefef"
-}
+  darkBg: '#3D424E',
+  lightBg: '#efefef',
+};

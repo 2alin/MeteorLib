@@ -87,7 +87,6 @@ const ControlsDrawer = ({ drawerVisibility, classes }: Props) => {
           >
             github
           </a>
-          {/* <div className="sources" /> */}
           <a
             href="https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh"
             target="_blank"
