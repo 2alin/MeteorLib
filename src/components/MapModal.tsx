@@ -11,12 +11,18 @@ const styles = {
     padding: '1rem',
     paddingTop: '4rem',
     background: THEME.lightBg,
+    // background: 'pink',
     position: 'fixed',
     zIndex: 10,
     top: 0,
     right: 0,
     bottom: 0,
     left: CONTROLS_WIDTH + 'px',
+    transform: 'translateY(-100vh)',
+    transition: 'transform 1s ease',
+    '&.visible': {
+      transform: 'translateY(0)',
+    },
 
     [`@media (max-width: ${BREAKING_POINT}px)`]: {
       left: 0,
@@ -40,32 +46,30 @@ const styles = {
 
 interface Props {
   meteorite: Meteorite | null;
+  mapVisibility: boolean;
   quitModal: () => void;
   classes: any;
 }
 
 class MapModal extends React.Component<Props> {
-  componentDidMount() {
-    console.log('componenet mounted');
-    (document.querySelector('body') as HTMLBodyElement).classList.add(
-      'noscroll'
-    );
-  }
-
-  componentWillUnmount() {
-    console.log('component unmounted');
-    (document.querySelector('body') as HTMLBodyElement).classList.remove(
-      'noscroll'
-    );
-  }
   render() {
-    const { classes, quitModal, meteorite } = this.props;
+    const { classes, quitModal, meteorite, mapVisibility } = this.props;
+
+    if (mapVisibility) {
+      (document.querySelector('body') as HTMLBodyElement).classList.add(
+        'noscroll'
+      );
+    } else {
+      (document.querySelector('body') as HTMLBodyElement).classList.remove(
+        'noscroll'
+      );
+    }
 
     return (
-      <div className={classes.container}>
+      <div className={`${classes.container} ${mapVisibility ? 'visible' : ''}`}>
+        <div className={'closeButton'} onClick={quitModal} />
         {meteorite && (
           <>
-            <div className={'closeButton'} onClick={quitModal} />
             <div className={classes.mapBox}>Map</div>
             <InfoBox {...{ meteorite }} />
           </>

@@ -92,11 +92,11 @@ class MainContent extends React.Component<Props> {
   }
 
   render() {
-    const { list, classes, mapVisibility } = this.props;
+    const { list, classes } = this.props;
 
     return (
       <div className={classes.container}>
-        {mapVisibility && <MapModal />}
+        <MapModal />
         <List {...{ list }} />
         <ListBottom {...this.state} />
       </div>

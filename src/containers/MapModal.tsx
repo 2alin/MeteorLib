@@ -6,6 +6,7 @@ import { setMapVisibility } from '../actions';
 const mapStateToProps = (state: Store) => {
   return {
     meteorite: state.mapMeteorite,
+    mapVisibility: state.mapVisibility
   };
 };
 
