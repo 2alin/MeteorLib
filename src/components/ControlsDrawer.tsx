@@ -2,12 +2,12 @@ import React from 'react';
 import Controls from '../containers/Controls';
 import withStyles from 'react-jss';
 import githubIcon from '../assets/github.svg';
-import { linkStyle, BREAKING_POINT } from '../style';
+import { linkStyle, BREAKING_POINT, CONTROLS_WIDTH } from '../style';
 
 const styles = {
   drawer: {
     height: '100vh',
-    width: '270px',
+    width: CONTROLS_WIDTH + 'px',
     flexShrink: '0',
     display: 'flex',
     flexDirection: 'column',
@@ -20,17 +20,8 @@ const styles = {
     [`@media (max-width: ${BREAKING_POINT}px)`]: {
       position: 'fixed',
       zIndex: 50,
-      left: '-270px',
+      left: '-' + CONTROLS_WIDTH + 'px',
       transition: 'left 1s ease',
-      // '&::before': {
-      //   content: '"Hello"',
-      //   position: 'absolute',
-      //   top: 0,
-      //   right: 0,
-      //   bottom: 0,
-      //   left: 0,
-      //   background: 'rgba(0,0,0,.7)',
-      // },
       '&.visible': {
         left: 0,
       },

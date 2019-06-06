@@ -1,5 +1,7 @@
 import React from 'react';
 import withStyles from 'react-jss';
+import { Coordinates } from '../types';
+import { CONTROLS_WIDTH, BREAKING_POINT } from '../style';
 
 const styles = {
   container: {
@@ -9,11 +11,15 @@ const styles = {
     top: 0,
     right: 0,
     bottom: 0,
-    left: 0,
+    left: CONTROLS_WIDTH + 'px',
+    [`@media (max-width: ${BREAKING_POINT}px)`]: {
+      left: 0,
+    },
   },
 };
 
 interface Props {
+  mapCoordinates: Coordinates | null;
   quitModal: () => void;
   classes: any;
 }
@@ -33,10 +39,12 @@ class MapModal extends React.Component<Props> {
     );
   }
   render() {
-    const { classes, quitModal } = this.props;
+    const { classes, quitModal, mapCoordinates } = this.props;
     return (
       <div className={classes.container} onClick={quitModal}>
-        I'm a map container
+        {mapCoordinates !== null
+          ? mapCoordinates[0] + ' , ' + mapCoordinates[1]
+          : 'no available coordinates'}
       </div>
     );
   }

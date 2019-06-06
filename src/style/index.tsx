@@ -72,3 +72,5 @@ export const removeStyleList = {
 };
 
 export const BREAKING_POINT = 670;
+
+export const CONTROLS_WIDTH = 270;
