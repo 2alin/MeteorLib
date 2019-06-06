@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import Card from '../components/Card';
-import { setMapVisibility, setMapMeteorite } from '../actions';
+import {
+  setMapVisibility,
+  setMapMeteorite,
+  setDrawerVisibility,
+} from '../actions';
 import { Meteorite } from '../types';
 
 const mapDispatchToProps = (dispatch: any) => {
@@ -8,6 +12,7 @@ const mapDispatchToProps = (dispatch: any) => {
     showMap: (meteorite: Meteorite) => {
       dispatch(setMapVisibility(true));
       dispatch(setMapMeteorite(meteorite));
+      dispatch(setDrawerVisibility(false));
     },
   };
 };
