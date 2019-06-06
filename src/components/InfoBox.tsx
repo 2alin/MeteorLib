@@ -6,7 +6,7 @@ import { THEME } from '../style';
 
 const styles = {
   container: {
-    padding: '.5rem',
+    padding: '1rem',
     display: 'flex',
     flexDirection: 'column',
     overflow: 'auto',

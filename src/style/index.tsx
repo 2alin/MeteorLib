@@ -71,7 +71,7 @@ export const removeStyleList = {
   listStyle: 'none',
 };
 
-export const BREAKING_POINT = 670;
+export const BREAKING_POINT = 920;
 
 export const CONTROLS_WIDTH = 270;
 
