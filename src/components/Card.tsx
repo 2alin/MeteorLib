@@ -15,6 +15,7 @@ const styles = {
     overflow: 'hidden',
     borderRadius: '4px',
     color: 'white',
+    cursor: 'pointer',
     transition: 'transform .25s ease',
     '&:hover': {
       transform: 'translate(8px, 0)',
@@ -48,10 +49,11 @@ const styles = {
 
 interface Props {
   meteorite: Meteorite;
+  showMap: (meteorite: Meteorite) => void;
   classes: any;
 }
 
-function Card({ meteorite, classes }: Props) {
+function Card({ meteorite, showMap, classes }: Props) {
   const {
     name,
     recclass,
@@ -64,7 +66,12 @@ function Card({ meteorite, classes }: Props) {
   } = meteorite;
 
   return (
-    <div className={classes.container + ' ' + classifyMeteorite(recclass)}>
+    <div
+      className={classes.container + ' ' + classifyMeteorite(recclass)}
+      onClick={() => {
+        showMap(meteorite);
+      }}
+    >
       <div className={classes.row}>
         <div className={classes.group}>
           <span className="year">

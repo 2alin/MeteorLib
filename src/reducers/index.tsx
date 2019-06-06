@@ -8,6 +8,8 @@ import {
   Language,
   SetLanguage,
   SetDrawerVisibility,
+  SetMapVisibility,
+  SetMapMeteorite,
 } from '../types';
 
 function list(state: Meteorite[] = [], action: UpdateList) {
@@ -73,12 +75,32 @@ function drawerVisibility(state: boolean = false, action: SetDrawerVisibility) {
   }
 }
 
+function mapVisibility(state: boolean = false, action: SetMapVisibility) {
+  switch (action.type) {
+    case actionTypes.SET_MAP_VISIBILITY:
+      return action.mapVisibility;
+    default:
+      return state;
+  }
+}
+
+function mapMeteorite(state: Meteorite | null = null, action: SetMapMeteorite) {
+  switch (action.type) {
+    case actionTypes.SET_MAP_METEORITE:
+      return action.mapMeteorite;
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
   list,
   options,
   pagination,
   language,
   drawerVisibility,
+  mapVisibility,
+  mapMeteorite,
 });
 
 export default rootReducer;

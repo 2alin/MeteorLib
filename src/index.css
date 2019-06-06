@@ -5,6 +5,10 @@ html {
 }
 body {
   margin: 0;
-  background: #e5e5e5;
+  background: #efefef;
   color: #333;
+}
+
+body.noscroll {
+  overflow: hidden;
 }

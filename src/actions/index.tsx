@@ -32,3 +32,13 @@ export const setDrawerVisibility = (drawerVisibility: boolean) => ({
   type: actionTypes.SET_DRAWER_VISIBILITY,
   drawerVisibility,
 });
+
+export const setMapVisibility = (mapVisibility: boolean) => ({
+  type: actionTypes.SET_MAP_VISIBILITY,
+  mapVisibility,
+});
+
+export const setMapMeteorite = (mapMeteorite: Meteorite) => ({
+  type: actionTypes.SET_MAP_METEORITE,
+  mapMeteorite,
+});

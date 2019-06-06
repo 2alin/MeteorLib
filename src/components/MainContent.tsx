@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import List from './List';
 import ListBottom from './ListBottom';
+import MapModal from '../containers/MapModal';
 import withStyles from 'react-jss';
 import { Options, Meteorite, Pagination, ListStatus } from '../types';
 import { fetchMeteoristList } from '../utilities/async';
@@ -21,10 +22,11 @@ interface Props {
   options: Options;
   pagination: Pagination;
   handleUpdateList: (list: Meteorite[]) => void;
+  mapVisibility: boolean;
   classes: any;
 }
 
-class MeteoritesList extends React.Component<Props> {
+class MainContent extends React.Component<Props> {
   state: {
     list: Meteorite[];
     status: ListStatus;
@@ -94,6 +96,7 @@ class MeteoritesList extends React.Component<Props> {
 
     return (
       <div className={classes.container}>
+        <MapModal />
         <List {...{ list }} />
         <ListBottom {...this.state} />
       </div>
@@ -101,4 +104,4 @@ class MeteoritesList extends React.Component<Props> {
   }
 }
 
-export default withStyles(styles)(MeteoritesList);
+export default withStyles(styles)(MainContent);

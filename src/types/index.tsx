@@ -43,6 +43,8 @@ export interface Store {
   pagination: Pagination;
   language: Language;
   drawerVisibility: boolean;
+  mapVisibility: boolean;
+  mapMeteorite: Meteorite | null;
 }
 
 export interface Action {
@@ -67,4 +69,12 @@ export interface NextPage extends Action {}
 
 export interface SetDrawerVisibility extends Action {
   drawerVisibility: boolean;
+}
+
+export interface SetMapVisibility extends Action {
+  mapVisibility: boolean;
+}
+
+export interface SetMapMeteorite extends Action {
+  mapMeteorite: Meteorite | null;
 }
