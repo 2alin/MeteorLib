@@ -1,4 +1,5 @@
 import React from 'react';
+import InfoBox from './InfoBox';
 import withStyles from 'react-jss';
 import { CONTROLS_WIDTH, BREAKING_POINT } from '../style';
 import { Meteorite } from '../types';
@@ -22,11 +23,6 @@ const styles = {
   mapBox: {
     background: 'lightgreen',
     flex: 1,
-  },
-  infoBox: {
-    background: 'lightblue',
-    display: 'flex',
-    overflow: 'auto',
   },
 };
 
@@ -58,7 +54,7 @@ class MapModal extends React.Component<Props> {
         {meteorite && (
           <>
             <div className={classes.mapBox}>Map</div>
-            <div className={classes.infoBox}>{meteorite.name}</div>
+            <InfoBox {...{ meteorite }} />
           </>
         )}
       </div>
