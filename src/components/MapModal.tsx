@@ -4,6 +4,7 @@ import withStyles from 'react-jss';
 import { CONTROLS_WIDTH, BREAKING_POINT, THEME } from '../style';
 import { Meteorite } from '../types';
 import closeIcon from '../assets/close.svg';
+import MapBox from './MapBox';
 
 const styles = {
   container: {
@@ -11,7 +12,6 @@ const styles = {
     padding: '1rem',
     paddingTop: '4rem',
     background: THEME.lightBg,
-    // background: 'pink',
     position: 'fixed',
     zIndex: 10,
     top: 0,
@@ -38,10 +38,13 @@ const styles = {
       cursor: 'pointer',
       background: `center / contain no-repeat url(${closeIcon})`,
     },
-  },
-  mapBox: {
-    background: 'lightgreen',
-    flex: 1,
+
+    '& .message': {
+      flex: 1,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
   },
 };
 
@@ -71,7 +74,11 @@ class MapModal extends React.Component<Props> {
         <div className={'closeButton'} onClick={quitModal} />
         {meteorite && (
           <>
-            <div className={classes.mapBox}>Map</div>
+            {meteorite.geolocation ? (
+              <MapBox {...{ meteorite }} />
+            ) : (
+              <div className={'message'}>No coordidates available.</div>
+            )}
             <InfoBox {...{ meteorite }} />
           </>
         )}
