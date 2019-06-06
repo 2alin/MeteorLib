@@ -15,6 +15,7 @@ const styles = {
     overflow: 'hidden',
     borderRadius: '4px',
     color: 'white',
+    cursor: 'pointer',
     transition: 'transform .25s ease',
     '&:hover': {
       transform: 'translate(8px, 0)',
