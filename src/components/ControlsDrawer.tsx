@@ -22,6 +22,15 @@ const styles = {
       zIndex: 50,
       left: '-270px',
       transition: 'left 1s ease',
+      // '&::before': {
+      //   content: '"Hello"',
+      //   position: 'absolute',
+      //   top: 0,
+      //   right: 0,
+      //   bottom: 0,
+      //   left: 0,
+      //   background: 'rgba(0,0,0,.7)',
+      // },
       '&.visible': {
         left: 0,
       },

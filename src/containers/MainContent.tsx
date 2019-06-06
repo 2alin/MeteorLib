@@ -12,6 +12,7 @@ const mapStateToProps = (state: Store) => {
       massRange: { ...state.options.massRange },
     },
     pagination: { ...state.pagination },
+    mapVisibility: state.mapVisibility,
   };
 };
 

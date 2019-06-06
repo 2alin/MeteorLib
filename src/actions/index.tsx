@@ -1,5 +1,5 @@
 import * as actionTypes from '../actionTypes';
-import { Meteorite, Options, Language } from '../types';
+import { Meteorite, Options, Language, Coordinates } from '../types';
 
 export const updateList = (list: Meteorite[]) => ({
   type: actionTypes.UPDATE_LIST,
@@ -31,4 +31,14 @@ export const resetPage = () => ({
 export const setDrawerVisibility = (drawerVisibility: boolean) => ({
   type: actionTypes.SET_DRAWER_VISIBILITY,
   drawerVisibility,
+});
+
+export const setMapVisibility = (mapVisibility: boolean) => ({
+  type: actionTypes.SET_MAP_VISIBILITY,
+  mapVisibility,
+});
+
+export const setMapCoordinates = (mapCoordinates: Coordinates | null) => ({
+  type: actionTypes.SET_MAP_COORDINATES,
+  mapCoordinates,
 });

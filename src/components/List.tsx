@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from './Card';
+import Card from '../containers/Card';
 import { Meteorite } from '../types';
 import withStyles from 'react-jss';
 

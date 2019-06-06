@@ -35,6 +35,8 @@ export type Language = 'ES' | 'EN';
 
 export type ListStatus = 'error' | 'loading' | 'iddle' | 'empty' | 'full';
 
+export type Coordinates = [number, number];
+
 // export type OrderedBy = 'id' | 'mass' | 'name' | 'year';
 
 export interface Store {
@@ -43,6 +45,8 @@ export interface Store {
   pagination: Pagination;
   language: Language;
   drawerVisibility: boolean;
+  mapVisibility: boolean;
+  mapCoordinates: Coordinates | null;
 }
 
 export interface Action {
@@ -67,4 +71,13 @@ export interface NextPage extends Action {}
 
 export interface SetDrawerVisibility extends Action {
   drawerVisibility: boolean;
+}
+
+export interface SetMapVisibility extends Action {
+  mapVisibility: boolean;
+}
+
+export interface SetMapCoordinates extends Action {
+  // mapCoordinates: [number, number];
+  mapCoordinates: Coordinates | null;
 }
