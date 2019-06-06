@@ -3,6 +3,7 @@ import InfoBox from './InfoBox';
 import withStyles from 'react-jss';
 import { CONTROLS_WIDTH, BREAKING_POINT, THEME } from '../style';
 import { Meteorite } from '../types';
+import closeIcon from '../assets/close.svg';
 
 const styles = {
   container: {
@@ -16,8 +17,19 @@ const styles = {
     right: 0,
     bottom: 0,
     left: CONTROLS_WIDTH + 'px',
+
     [`@media (max-width: ${BREAKING_POINT}px)`]: {
       left: 0,
+    },
+
+    '& .closeButton': {
+      position: 'absolute',
+      top: '.5rem',
+      right: '.5rem',
+      width: '42px',
+      height: '42px',
+      cursor: 'pointer',
+      background: `center / contain no-repeat url(${closeIcon})`,
     },
   },
   mapBox: {
@@ -50,9 +62,10 @@ class MapModal extends React.Component<Props> {
     const { classes, quitModal, meteorite } = this.props;
 
     return (
-      <div className={classes.container} onClick={quitModal}>
+      <div className={classes.container}>
         {meteorite && (
           <>
+            <div className={'closeButton'} onClick={quitModal} />
             <div className={classes.mapBox}>Map</div>
             <InfoBox {...{ meteorite }} />
           </>
