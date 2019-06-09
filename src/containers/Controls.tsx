@@ -5,6 +5,7 @@ import {
   resetPage,
   setDrawerVisibility,
   setLanguage,
+  setMapVisibility,
 } from '../actions';
 import Controls from '../components/Controls';
 
@@ -25,6 +26,7 @@ const mapDispatchToProps = (dispatch: any) => {
       dispatch(setLanguage(lang));
     },
     onSave: (options: Options) => {
+      dispatch(setMapVisibility(false));
       dispatch(updateOptions(options));
       dispatch(resetPage());
       dispatch(setDrawerVisibility(false));
