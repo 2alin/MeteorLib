@@ -1,4 +1,8 @@
 # MeteorLib 
+## Video Preview
+https://www.youtube.com/watch?v=SkohUoTVAWg
+
+## Project Description
 A web app library that displays information about meteorite landings on earth. [ Try it out at https://meteorlib.netlify.com ]
 
 Uses [NASA's Open Data Portal](https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh) as API, and  ReactJS, Redux, TypeScript, JSS for the front-end. 
