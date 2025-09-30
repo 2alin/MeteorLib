@@ -1,10 +1,14 @@
 # MeteorLib 
+
+## Archived project
+This project is no longer maintained
+
 ## Video Preview
 https://www.youtube.com/watch?v=SkohUoTVAWg
 
 ## Project Description
 
-Update 2025-Sep-30: Data API and live version of the project are currently unavailable.
+**Update 2025-Sep-30**: Data API and live version of the project are currently unavailable.
 
 A web app library that displays information about meteorite landings on earth. [ Try it out at https://meteorlib.netlify.com ]
 
